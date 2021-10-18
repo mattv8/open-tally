@@ -6,21 +6,15 @@ OpenTally works with TallyArbiter!
 OpenTally is an open-source Windows .NET framework app with three primary purposes: 
 
  1. To bring functionality between Joseph Adam's [TallyArbiter](https://github.com/josephdadams/TallyArbiter/) app with which tally bus data can be sent via USB to the [OpenTally USB Client]():
-	```mermaid
 	graph LR
 	A(TallyArbiter) -- SocketIO --> B((OpenTally)) -- USB --> C[OpenTally USB Client]
-	```
 2. To communicate directly with OBS Websockets for tally bus information which can be sent over USB to the [OpenTally USB Client]():
-	```mermaid
 	graph LR
 	A(OBS) -- OBS Websockets --> B((OpenTally)) -- USB --> C[OpenTally USB Client]
-	```
 3. To program Wi-Fi SSID and other information into the EEPROM of the [OpenTally Wi-Fi Client]() which communicates directly with [TallyArbiter](https://github.com/josephdadams/TallyArbiter/) once connected to network:
-	```mermaid
 	graph LR
 	A((OpenTally)) -- USB --> B[OpenTally Wi-Fi Client] -- USB --> A
 	B -. WiFi .-> C(TallyArbiter)-. WiFi .-> B
-	```
 ## Installation
 Installation instructions can be found [here](https://www.opentally.org/installation).
 
