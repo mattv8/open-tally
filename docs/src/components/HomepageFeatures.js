@@ -4,32 +4,56 @@ import styles from './HomepageFeatures.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('../../static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Multi-Tally-Device Support',
+    Svg: require('../../static/img/features/devices.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Tally Arbiter supports a wide variety of tally lights ranging from an M5 Stick to your smartphone.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('../../static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Combine Video Switchers',
+    Svg: require('../../static/img/features/switchers.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Combine incoming tally data from multiple video switchers and arbitrate the bus state across all of the sources.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('../../static/img/undraw_docusaurus_react.svg').default,
+    title: 'Cloud Synchronization',
+    Svg: require('../../static/img/features/cloud.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Sync your settings and tally data from your closed production network to a cloud server for easier access.
+      </>
+    ),
+  },
+  {
+    title: 'Producer-Page',
+    Svg: require('../../static/img/features/producer.svg').default,
+    description: (
+      <>
+        Producers can view connected clients and get attention by flashing their device.
+      </>
+    ),
+  },
+  {
+    title: 'Chat',
+    Svg: require('../../static/img/features/chat.svg').default,
+    description: (
+      <>
+        Send important messages to the Tally clients - directly from the producer page.
+      </>
+    ),
+  },
+  {
+    title: 'Infinite number of cameras',
+    Svg: require('../../static/img/features/camera.svg').default,
+    description: (
+      <>
+        TallyArbiter can support an unlimited of cameras and therefore can be used for any production - no matter how big or small it is!
       </>
     ),
   },
