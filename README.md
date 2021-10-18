@@ -1,6 +1,5 @@
 # ![OpenTally Icon](https://git.visnovsky.us/Matt/open-tally/-/raw/master/icons/Icon-02.png) Welcome to Open Tally!
-OpenTally works with TallyArbiter!
-![OpenTally Icon](https://github.com/mattv8/open-tally/blob/main/icons/Icon-02.png?raw=true) + ![TallyArbiter Icon](https://github.com/josephdadams/TallyArbiter/blob/master/UI/src/assets/icons/icon-96x96.png?raw=true)
+![ot+ta.png](https://github.com/mattv8/open-tally/blob/main/icons/ot+ta.png?raw=true) OpenTally works with TallyArbiter!
 
 OpenTally is an open-source Windows .NET framework app with three primary purposes: 
 
