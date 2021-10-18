@@ -1,0 +1,9 @@
+<root>
+  <Websocket password="tacos" />
+  <Source1 name="Cam 1" />
+  <Source2 name="Cam 2" />
+  <Source3 name="Cam 3" />
+  <Source4 name="Cam 4" />
+  <WebsocketAddress address="127.0.0.1" />
+  <WebsocketPort port="4444" />
+</root>
