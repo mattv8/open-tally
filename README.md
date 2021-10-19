@@ -22,6 +22,12 @@ Installation instructions can be found [here](https://www.opentally.org/installa
 All documentation can be found [here](https://mattv8.github.io/open-tally/).
 
 ## Contributing
-Contributions are always welcome. Here's a quick guide on how to setup your local development environment:
-1. Make any code changes desired
-2. Submit your work as a pull request
+I would welcome any software contributions! I have licensed the CAD parts and software as GPLv3. If you want to contribute to the software side, you will need the following:
+1. Microsoft Visual Studio 2019
+	- This project utilizes the [Costura.Fody](https://www.nuget.org/packages/Costura.Fody/) packager, which will have to be installed into MS Visual Studio with [NuGet](https://docs.microsoft.com/en-us/nuget/consume-packages/install-use-packages-visual-studio).
+
+Credits
+-----------------------------
+- The amazing Joseph Adams and his hard work on the TallyArbiter project.
+- Project ideas from the following OBS forum thread: https://obsproject.com/forum/threads/live-cameara-led.73922/.
+- Arduino portion loosely based off of https://boprograms.eu/obsTally/.
