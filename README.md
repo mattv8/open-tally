@@ -30,4 +30,3 @@ Credits
 -----------------------------
 - The amazing Joseph Adams and his hard work on the TallyArbiter project.
 - Project ideas from the following OBS forum thread: https://obsproject.com/forum/threads/live-cameara-led.73922/.
-- Arduino portion loosely based off of https://boprograms.eu/obsTally/.
