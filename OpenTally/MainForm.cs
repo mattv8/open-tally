@@ -64,7 +64,7 @@ namespace OpenTally
             {
                 configObj = Functions.loadConfigXML(); // Load the XML file, catch if it doesn't exist
             }
-            catch (FileNotFoundException ex1) //if Config doesn't exist, show setupPopup
+            catch (FileNotFoundException) //if Config doesn't exist, show setupPopup
             {
                 SetupButton_Click(sender, e);//Simulate setup button click
             }
