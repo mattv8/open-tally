@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Siticone.Desktop.UI.WinForms;
+using System;
 using System.Drawing;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
-using System.Management;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using System.Xml;
-using Newtonsoft.Json;
-using Quobject.SocketIoClientDotNet.Client;// socket.io for .NET (Client)
-using Siticone.Desktop.UI.WinForms;
-using System.Reflection;
-using System.Diagnostics;
 
 namespace OpenTally
 {
@@ -35,7 +27,7 @@ namespace OpenTally
         public string TADefaultPort = "4455";
         public static bool previews;
 
-        
+
         public MainForm()
         {
             InitializeComponent();
@@ -54,7 +46,7 @@ namespace OpenTally
         private void MainProgram_Load(object sender, EventArgs e)
         {
             DeviceInfoButton.Enabled = Serial.connected;//Enable\Disable buttons based on serial connectivity
-            
+
             //Initialize form with only 1 row of tally labels. Adding more than 4 devices/sources will drop down second row.
             this.Size = this.MinimumSize = new Size(this.Width, this.Height - (int)tableLayout2.RowStyles[1].Height);//Resize this
             tableLayout2.RowStyles[1].Height = 0;
@@ -72,7 +64,7 @@ namespace OpenTally
             {
 
             }
-            
+
             ServerConnectionHandler();//Server Connections
             UIElements.GetControlsOfType<Label>(this).ToList().ForEach(element => new SiticoneDragControl(element));//Make all labels dragabble
             InfoText.Text = "OpenTally v" + Functions.CurrentVersion;//Show version info
@@ -257,7 +249,7 @@ namespace OpenTally
 
         #region -  Server Connection Handler  -
 
-        private void ServerConnectionHandler ()
+        private void ServerConnectionHandler()
         {
             UIElements.ColorAllLabels(Color.Gray, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, null); //Gray out all labels
 
@@ -516,7 +508,7 @@ namespace OpenTally
 
             }
         }
-        
+
         #endregion
 
     }

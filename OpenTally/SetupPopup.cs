@@ -1,18 +1,10 @@
-﻿using System;
+﻿using Siticone.Desktop.UI.WinForms;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
-using System.IO.Ports;
 using System.Linq;
-using System.Management;
-using System.Text.RegularExpressions;
-using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
-using Newtonsoft.Json;
-using OBSWebsocketDotNet;
-using Quobject.SocketIoClientDotNet.Client;// socket.io for .NET (Client)
-using Siticone.Desktop.UI.WinForms;
 
 namespace OpenTally
 {
@@ -40,7 +32,7 @@ namespace OpenTally
 
         // Serial vars
         public string[] serialVars;
-        
+
         //Password Encryption Key
         public static string pwKey = null;
 
@@ -103,9 +95,9 @@ namespace OpenTally
 
             //Store current row heights before hiding them
             LayoutPanelAllRowHeightsPercent = UIElements.GetRowHeights(LayoutPanelAll);//Store height FOR wireless mode
-            LayoutPanelAllRowHeightsPixels = UIElements.GetRowHeights(LayoutPanelAll,"pixels");//Store height FOR wireless mode
+            LayoutPanelAllRowHeightsPixels = UIElements.GetRowHeights(LayoutPanelAll, "pixels");//Store height FOR wireless mode
             LayoutPanelUserConfigRowHeightsPercent = UIElements.GetRowHeights(LayoutPanelUserConfig);//Store height FOR wireless mode
-            LayoutPanelUserConfigRowHeightsPixels = UIElements.GetRowHeights(LayoutPanelUserConfig,"pixels");//Store height FOR wireless mode
+            LayoutPanelUserConfigRowHeightsPixels = UIElements.GetRowHeights(LayoutPanelUserConfig, "pixels");//Store height FOR wireless mode
 
             IPAddressComboBox.Items.Add("Local Address");
             IPAddressComboBox.Items.Add("Custom Address");
@@ -116,7 +108,7 @@ namespace OpenTally
             TestConnectButton.Enabled = true;
 
             UIElements.GetControlsOfType<SiticoneComboBox>(this.LayoutPanelSourceUI).ToList().ForEach(element => element.Items.Add(""));//Add blank to all source selections
-            UIElements.GetControlsOfType<SiticoneComboBox>(this.LayoutPanelSourceUI).ToList().ForEach( element => element.SelectedIndex = 0 );//Required to avoid null values
+            UIElements.GetControlsOfType<SiticoneComboBox>(this.LayoutPanelSourceUI).ToList().ForEach(element => element.SelectedIndex = 0);//Required to avoid null values
 
             //Password encryption key loading
             pwKey = Functions.loadEncryptionKey();// Try to load the password encryption key from the registry.
@@ -137,7 +129,7 @@ namespace OpenTally
 
             }
 
-            
+
             if (configObj.mode != null)// If there is a config.xml file, configObj.mode won't be null.
             {
                 // Set UI depending on mode from config
@@ -195,7 +187,7 @@ namespace OpenTally
             }
 
         }
-        
+
         #endregion
 
 
@@ -390,7 +382,7 @@ namespace OpenTally
                         MessageText.BackColor = Color.LightYellow;
                         MessageText.Text = "No verification from device, try programming again.";
                     }
-                    serialVars =Serial.LineReceived(Serial.port.ReadExisting());
+                    serialVars = Serial.LineReceived(Serial.port.ReadExisting());
                     count++;
                 }
                 Console.WriteLine("End while loop");
@@ -470,7 +462,8 @@ namespace OpenTally
                 Point pt = new Point(0, 0);
                 pt.Offset(IPAddressTextBox.Width, 0);
                 IPAddressToolTip.Show("Please enter a valid IP address (i.e. 192.168.0.10)", IPAddressTextBox, pt, 5000);
-            } else if (isValidIP == true)
+            }
+            else if (isValidIP == true)
             {
                 configObj.wsAddress = IPAddressTextBox.Text;//Set configObj value
                 TestConnectButton.Enabled = true;
@@ -490,7 +483,8 @@ namespace OpenTally
                 pt.Offset(PortTextBox.Width, 0);
                 PortToolTip.Show("Please enter a valid port (value between 0 - 65535)", PortTextBox, pt, 5000);
                 UIElements.WSUpdateButton("Connect", TestConnectButton, Color.FromArgb(125, 137, 149), Color.White, "enabled");
-            } else if (isValidPort == true)
+            }
+            else if (isValidPort == true)
             {
                 configObj.wsPort = PortTextBox.Text;//set configObj value
                 TestConnectButton.Enabled = true;
@@ -548,7 +542,7 @@ namespace OpenTally
             TestConnectButton.WSUpdateControl(() => { TestConnectButton.Text = "Get Devices"; TestConnectButton.FillColor = Color.Gray; });
 
             //Resize form on toggle
-            this.Size = this.MinimumSize = new Size(this.Width, this.Height + (int) LayoutPanelAllRowHeightsPixels[2] + (int) LayoutPanelUserConfigRowHeightsPixels[2] - ((int) LayoutPanelAllRowHeightsPixels[4] + (int) LayoutPanelAllRowHeightsPixels[5]));//Resize form to be shorter
+            this.Size = this.MinimumSize = new Size(this.Width, this.Height + (int)LayoutPanelAllRowHeightsPixels[2] + (int)LayoutPanelUserConfigRowHeightsPixels[2] - ((int)LayoutPanelAllRowHeightsPixels[4] + (int)LayoutPanelAllRowHeightsPixels[5]));//Resize form to be shorter
 
             //Unhide rows using saved row heights FROM wired mode
             LayoutPanelAll.RowStyles[2].Height = LayoutPanelAllRowHeightsPercent[2];
@@ -615,7 +609,7 @@ namespace OpenTally
                         //Console.WriteLine("j=" + j + ", i=" + i + " value is " + value);
 
                         if (!String.IsNullOrEmpty(value))
-                        { 
+                        {
                             element.WSUpdateControl(() => { element.Items.Add(Functions.GetPropValue(configObj, propertyName[1])); });//If value is not null, add to ComboBox
                             if (i == j) { element.WSUpdateControl(() => { element.SelectedItem = value; }); }//If indeces match, make the selection
                         }

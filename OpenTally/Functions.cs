@@ -1,21 +1,15 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
-using System.Drawing;
+using System.Deployment.Application;
 using System.IO;
-using System.IO.Ports;
 using System.Linq;
-using System.Management;
 using System.Reflection;
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml;
-using Newtonsoft.Json;
-using Quobject.SocketIoClientDotNet.Client;// socket.io for .NET (Client)
-using Siticone.Desktop.UI.WinForms;
-using System.Deployment.Application;
-using System.Text;
-using System.Security.Cryptography;
-using Microsoft.Win32;
 
 namespace OpenTally
 {
@@ -144,7 +138,7 @@ namespace OpenTally
             return count;
         }
 
-        public static List<Devices> toDeviceList( List<OBSWebsocketDotNet.Types.SceneItem> sceneItems )
+        public static List<Devices> toDeviceList(List<OBSWebsocketDotNet.Types.SceneItem> sceneItems)
         {
             List<Devices> tmp = new List<Devices>(); //Initialize list
             foreach (var source in sceneItems)
@@ -297,7 +291,7 @@ namespace OpenTally
             return decryptedBytes;
         }
 
-        public static string loadEncryptionKey ()
+        public static string loadEncryptionKey()
         {
             object key = null;
             string keypath = "Software\\OpenTally";
@@ -307,13 +301,14 @@ namespace OpenTally
                 key = regkey.GetValue("PWKey");//Load subkey
                 if (key != null) { return key.ToString(); }
                 else { return null; }// Return null if subkey doesn't exist
-            } else
+            }
+            else
             {
                 return null;// Return null if root key doesn't exist
             }
         }
 
-        public static void setEncryptionKey ( string key )
+        public static void setEncryptionKey(string key)
         {
             // If registry key does not exist, create it under \HKEY_CURRENT_USER\SOFTWARE\OpenTally to store password encryption key.
             Microsoft.Win32.RegistryKey regkey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software", true);

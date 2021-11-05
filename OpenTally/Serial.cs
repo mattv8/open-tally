@@ -1,17 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Management;
-using System.Text.RegularExpressions;
-using System.Timers;
-using System.Windows.Forms;
-using System.Xml;
-using Newtonsoft.Json;
-using Quobject.SocketIoClientDotNet.Client;// socket.io for .NET (Client)
-using Siticone.Desktop.UI.WinForms;
 
 namespace OpenTally
 {

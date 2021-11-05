@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.IO.Ports;
-using System.Linq;
-using System.Management;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using System.Xml;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Quobject.SocketIoClientDotNet.Client;// socket.io for .NET (Client)
 using Siticone.Desktop.UI.WinForms;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace OpenTally
 {
@@ -48,7 +43,8 @@ namespace OpenTally
                 UIElements.WSUpdateButton("Connected\nLoading...", ConnectButton, Color.Green, Color.White, "disabled");
                 IsConnected = true;
             });
-            socket.On(Socket.EVENT_CONNECT_TIMEOUT, () => { //Disconnected
+            socket.On(Socket.EVENT_CONNECT_TIMEOUT, () =>
+            { //Disconnected
                 UIElements.WSUpdateButton("Connection\ntimeout.", ConnectButton, Color.Orange, Color.Black, "enabled");
                 UIElements.ColorAllLabels(Color.Gray, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
                 IsConnected = false;
@@ -91,7 +87,7 @@ namespace OpenTally
             {
                 Console.WriteLine("Got to socket_Devices()");
                 //Console.WriteLine("Devices:\n" + data);
-                
+
                 deviceList = JsonConvert.DeserializeObject<List<Devices>>(data.ToString());//JSON deserialize device data
 
                 for (var i = 0; i < deviceList.Count; i++)// For each device, update Tally Label respectively
@@ -104,7 +100,7 @@ namespace OpenTally
                     string listenerType = "Wi-Fi Tally " + device.name;
                     socket.Emit("device_listen", device.id, listenerType); //Send client type to TA server
                 }
-                MainForm.configObj  = configObj = Functions.assignConfig(configObj, deviceList);// Assign to all configObjs
+                MainForm.configObj = configObj = Functions.assignConfig(configObj, deviceList);// Assign to all configObjs
                 UIElements.WSUpdateButton("Connected.", ConnectButton, Color.Green, Color.White, "disabled");
                 UIElements.InitializeLabels(configObj, MainProgramForm, tableLayout1, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
 
@@ -128,12 +124,12 @@ namespace OpenTally
                     if (getBusTypeById(state.busId) == "preview")
                     {
                         if (state.active)
-                        { 
+                        {
                             mode_preview = true;
-                            if (!previewDevices.Any(item => item.id == state.deviceId)) { previewDevices.Add(new Devices { id = state.deviceId, name = getDeviceNameById(state.deviceId) });  }//If id isn't already in the list, add it
+                            if (!previewDevices.Any(item => item.id == state.deviceId)) { previewDevices.Add(new Devices { id = state.deviceId, name = getDeviceNameById(state.deviceId) }); }//If id isn't already in the list, add it
                         }
                         else
-                        { 
+                        {
                             mode_preview = false;
                             previewDevices.Remove(previewDevices.SingleOrDefault(item => item.id == state.deviceId));//Remove id from the list
                         }
@@ -141,12 +137,12 @@ namespace OpenTally
                     if (getBusTypeById(state.busId) == "program")
                     {
                         if (state.active)
-                        { 
+                        {
                             mode_program = true;
                             if (!liveDevices.Any(item => item.id == state.deviceId)) { liveDevices.Add(new Devices { id = state.deviceId, name = getDeviceNameById(state.deviceId) }); }//If id isn't already in the list, add it
                         }
                         else
-                        { 
+                        {
                             mode_program = false;
                             liveDevices.Remove(liveDevices.SingleOrDefault(item => item.id == state.deviceId));//Remove id from the list
                         }
@@ -166,7 +162,7 @@ namespace OpenTally
                     else if (mode_preview && mode_program)//LIVE & PREVIEW
                     {
                         //Console.WriteLine("Device " + getDeviceNameById(state.deviceId) + " is in PREVIEW+PROGRAM");
-                        if ( configObj.cut_bus == "true" )//true = Program + Preview = Red Tally; false = Programm + Preview = Yellow Tally
+                        if (configObj.cut_bus == "true")//true = Program + Preview = Red Tally; false = Programm + Preview = Yellow Tally
                         {
                             UIElements.RefreshLabels(getDeviceNameById(state.deviceId), Color.Red, configObj, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
                         }
@@ -198,11 +194,12 @@ namespace OpenTally
                 if (data != null)
                 {
                     Label label = UIElements.getLabelByDeviceName(getDeviceNameById(data.ToString()), Color.White, configObj, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
-                    UIElements.Blink(label,5);//Blink 5 times
+                    UIElements.Blink(label, 5);//Blink 5 times
                     UIElements.RefreshLabels(getDeviceNameById(data.ToString()), Color.Gray, configObj, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
-                } else
+                }
+                else
                 {
-                    UIElements.Blink(InfoText,5);//Blink 5 times
+                    UIElements.Blink(InfoText, 5);//Blink 5 times
                 }
             }
 
@@ -254,7 +251,8 @@ namespace OpenTally
                 label.WSUpdateControl(() => { label.Text = "Successfully connected to " + wsAddress; });
                 socket.Off(); //Kill the thread
             });
-            socket.On(Socket.EVENT_CONNECT_TIMEOUT, () => { //Disconnected
+            socket.On(Socket.EVENT_CONNECT_TIMEOUT, () =>
+            { //Disconnected
                 UIElements.WSUpdateButton("Connection timeout.", button, Color.Orange, Color.White, "enabled");
                 label.WSUpdateControl(() => { label.Text = "Conection to " + wsAddress + " timed out."; });
                 socket.Off(); //Kill the thread

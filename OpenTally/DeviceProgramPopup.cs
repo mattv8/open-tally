@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Siticone.Desktop.UI.WinForms;
+using System;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Management;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using System.Xml;
-using Newtonsoft.Json;
-using Quobject.SocketIoClientDotNet.Client;// socket.io for .NET (Client)
-using Siticone.Desktop.UI.WinForms;
 
 namespace OpenTally
 {
@@ -30,7 +23,7 @@ namespace OpenTally
         public DeviceProgramPopup()
         {
             InitializeComponent();
-            
+
             new SiticoneShadowForm(this);
             new SiticoneDragControl(this);
             this.DoubleBuffered = true;

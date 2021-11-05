@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Siticone.Desktop.UI.WinForms;
+using System;
 using System.Drawing;
-using System.IO;
-using System.IO.Ports;
 using System.Linq;
-using System.Management;
-using System.Text.RegularExpressions;
-using System.Timers;
 using System.Windows.Forms;
-using System.Xml;
-using Newtonsoft.Json;
-using Quobject.SocketIoClientDotNet.Client;// socket.io for .NET (Client)
-using Siticone.Desktop.UI.WinForms;
 
 namespace OpenTally
 {
@@ -26,7 +17,7 @@ namespace OpenTally
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.ResizeRedraw, true);
 
-            UIElements.GetControlsOfType<Label>(this).ToList().ForEach( element => new SiticoneDragControl(element) );// Make all labels dragabble
+            UIElements.GetControlsOfType<Label>(this).ToList().ForEach(element => new SiticoneDragControl(element));// Make all labels dragabble
 
             label5.Text = SSID;
             label6.Text = Pass;

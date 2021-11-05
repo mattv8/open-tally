@@ -1,13 +1,9 @@
-﻿using System;
-using System.IO;
-using System.IO.Ports;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using OBSWebsocketDotNet;
-using System.Drawing;
-using System.Xml;
+﻿using OBSWebsocketDotNet;
 using Siticone.Desktop.UI.WinForms;
-using OBSWebsocketDotNet.Types;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 //using System.Threading;
 
 namespace OpenTally
@@ -51,7 +47,7 @@ namespace OpenTally
                     label.WSUpdateControl(() => { label.Text = "Conection to " + wsAddress + " timed out."; });
                 }
             }
-            catch(OBSWebsocketDotNet.AuthFailureException)
+            catch (OBSWebsocketDotNet.AuthFailureException)
             {
                 UIElements.WSUpdateButton("Authentication\nfailure.", button, Color.Orange, Color.White, "enabled");
             }

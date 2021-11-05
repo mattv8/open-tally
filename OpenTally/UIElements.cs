@@ -1,16 +1,10 @@
-﻿using System;
+﻿using Siticone.Desktop.UI.WinForms;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Management;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
-using Newtonsoft.Json;
-using Quobject.SocketIoClientDotNet.Client;// socket.io for .NET (Client)
-using Siticone.Desktop.UI.WinForms;
 
 namespace OpenTally
 {
@@ -18,7 +12,7 @@ namespace OpenTally
     {
         // UI Variables
         public const int cGrip = 16;      // Grip size
-        
+
         // Light Mode Colors
         public Color BackColor = Color.White;
         public Color ForeColor = Color.Black;
@@ -117,7 +111,8 @@ namespace OpenTally
                 else if (HeightType == "percent")//Return row heights as pixel values
                 {
                     rowHeights[i] = table.RowStyles[i].Height;
-                }else
+                }
+                else
                 {
                     throw new ArgumentException(message: "Second argument must be literal string \"percent\" or \"pixels\".");
                 }
@@ -157,7 +152,7 @@ namespace OpenTally
         public static void InitializeLabels(Config configObj, Form form, TableLayoutPanel innerTable, Label Source1, Label Source2, Label Source3, Label Source4, Label Source5, Label Source6, Label Source7, Label Source8, Label InfoText)
         {
             int count = Functions.countSources(configObj); //Get source count from the configObj
-            Console.WriteLine("innerTable.RowStyles[1].Height="+innerTable.RowStyles[1].Height);
+            Console.WriteLine("innerTable.RowStyles[1].Height=" + innerTable.RowStyles[1].Height);
             if (count <= 4 && innerTable.RowStyles[1].Height >= 50)// Remove 2nd row of tally labels from form depending on count of sources
             {
                 form.WSUpdateControl(() =>
@@ -203,8 +198,8 @@ namespace OpenTally
             if (source == configObj.source6) { Source6.WSUpdateControl(() => { Source6.BackColor = color; }); }
             if (source == configObj.source7) { Source7.WSUpdateControl(() => { Source7.BackColor = color; }); }
             if (source == configObj.source8) { Source8.WSUpdateControl(() => { Source8.BackColor = color; }); }
-            
-            if (source == configObj.source1 && source == configObj.source2 && source == configObj.source3 && source == configObj.source4 
+
+            if (source == configObj.source1 && source == configObj.source2 && source == configObj.source3 && source == configObj.source4
                 && source == configObj.source5 && source == configObj.source6 && source == configObj.source7 && source == configObj.source8) //If source doesn't equal any configured sources
             {
                 if (color == Color.Red) { InfoText.WSUpdateControl(() => { InfoText.Text = "A non-tallied source is live."; }); }
@@ -224,7 +219,8 @@ namespace OpenTally
             Source6.WSUpdateControl(() => { Source6.BackColor = color; });
             Source7.WSUpdateControl(() => { Source7.BackColor = color; });
             Source8.WSUpdateControl(() => { Source8.BackColor = color; });
-            InfoText.WSUpdateControl(() => { 
+            InfoText.WSUpdateControl(() =>
+            {
                 InfoText.BackColor = Color.Transparent;
                 InfoText.Text = "";
             });
