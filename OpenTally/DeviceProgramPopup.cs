@@ -26,13 +26,13 @@ namespace OpenTally
 
             new SiticoneShadowForm(this);
             new SiticoneDragControl(this);
-            this.DoubleBuffered = true;
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
+            DoubleBuffered = true;
+            SetStyle(ControlStyles.ResizeRedraw, true);
 
             DefaultCustomComboBox.Items.Add("Default");
             DefaultCustomComboBox.Items.Add("Custom");
             DefaultCustomComboBox.SelectedIndex = 0;
-            UIElements.GetControlsOfType<SiticoneTextBox>(this.tableLayout1).ToList().ForEach(element => element.Enabled = false);//Disable text input
+            UIElements.GetControlsOfType<SiticoneTextBox>(tableLayout1).ToList().ForEach(element => element.Enabled = false);//Disable text input
 
             siticoneTextBox1.Text = networkSSID;
             siticoneTextBox2.Text = networkPass;
@@ -49,8 +49,8 @@ namespace OpenTally
         //Create window resize handle, from https://stackoverflow.com/questions/2575216/how-to-move-and-resize-a-form-without-a-border
         protected override void OnPaint(PaintEventArgs e)
         {
-            Rectangle rc = new Rectangle(this.ClientSize.Width - UIElements.cGrip, this.ClientSize.Height - UIElements.cGrip, UIElements.cGrip, UIElements.cGrip);
-            ControlPaint.DrawSizeGrip(e.Graphics, this.BackColor, rc);
+            Rectangle rc = new Rectangle(ClientSize.Width - UIElements.cGrip, ClientSize.Height - UIElements.cGrip, UIElements.cGrip, UIElements.cGrip);
+            ControlPaint.DrawSizeGrip(e.Graphics, BackColor, rc);
         }
 
         //Create window resize handle, from https://stackoverflow.com/questions/2575216/how-to-move-and-resize-a-form-without-a-border
@@ -59,8 +59,8 @@ namespace OpenTally
             if (m.Msg == 0x84) // Trap WM_NCHITTEST
             {
                 Point pos = new Point(m.LParam.ToInt32());
-                pos = this.PointToClient(pos);
-                if (pos.X >= this.ClientSize.Width - UIElements.cGrip && pos.Y >= this.ClientSize.Height - UIElements.cGrip)
+                pos = PointToClient(pos);
+                if (pos.X >= ClientSize.Width - UIElements.cGrip && pos.Y >= ClientSize.Height - UIElements.cGrip)
                 {
                     m.Result = (IntPtr)17; // HTBOTTOMRIGHT
                     return;
@@ -133,7 +133,7 @@ namespace OpenTally
             }
             else
             {
-                this.Close();
+                Close();
             }
         }
 
@@ -164,22 +164,22 @@ namespace OpenTally
 
         private void CustomMode()
         {
-            UIElements.GetControlsOfType<SiticoneTextBox>(this.tableLayout1).ToList().ForEach(element => element.Enabled = true);//Enable text input
-            this.Size = new Size(this.Width, this.Height + (int)lastRowHeight[2]);//Resize form
+            UIElements.GetControlsOfType<SiticoneTextBox>(tableLayout1).ToList().ForEach(element => element.Enabled = true);//Enable text input
+            Size = new Size(Width, Height + (int)lastRowHeight[2]);//Resize form
             tableLayout1.RowStyles[2].Height = lastRowHeight[2]; //Hide Wi-Fi password row
             lastSelectedIndex = DefaultCustomComboBox.SelectedIndex;
         }
 
         private void DefaultMode()
         {
-            UIElements.GetControlsOfType<SiticoneTextBox>(this.tableLayout1).ToList().ForEach(element => element.Enabled = false);//Disable text input
-                                                                                                                                  // Store current row heights before hiding them
+            UIElements.GetControlsOfType<SiticoneTextBox>(tableLayout1).ToList().ForEach(element => element.Enabled = false);//Disable text input
+                                                                                                                             // Store current row heights before hiding them
             for (int i = 0; i < tableLayout1.RowCount; i++)//Default
             {
                 lastRowHeight[i] = tableLayout1.RowStyles[i].Height;
                 //Console.WriteLine("Row " + i + "=" + lastRowHeight[i]);
             }
-            this.Size = new Size(this.Width, this.Height - (int)tableLayout1.RowStyles[2].Height);//Resize form
+            Size = new Size(Width, Height - (int)tableLayout1.RowStyles[2].Height);//Resize form
             tableLayout1.RowStyles[2].Height = 0; //Hide Wi-Fi password row
             lastSelectedIndex = DefaultCustomComboBox.SelectedIndex;
         }

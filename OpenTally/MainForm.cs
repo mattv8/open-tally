@@ -36,8 +36,8 @@ namespace OpenTally
 
             new SiticoneShadowForm(this);
             new SiticoneDragControl(this);
-            this.DoubleBuffered = true;
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
+            DoubleBuffered = true;
+            SetStyle(ControlStyles.ResizeRedraw, true);
 
         }
 
@@ -48,7 +48,7 @@ namespace OpenTally
             DeviceInfoButton.Enabled = Serial.connected;//Enable\Disable buttons based on serial connectivity
 
             //Initialize form with only 1 row of tally labels. Adding more than 4 devices/sources will drop down second row.
-            this.Size = this.MinimumSize = new Size(this.Width, this.Height - (int)tableLayout2.RowStyles[1].Height);//Resize this
+            Size = MinimumSize = new Size(Width, Height - (int)tableLayout2.RowStyles[1].Height);//Resize this
             tableLayout2.RowStyles[1].Height = 0;
 
             //Config Loading
@@ -79,8 +79,8 @@ namespace OpenTally
         //Create window resize handle, from https://stackoverflow.com/questions/2575216/how-to-move-and-resize-a-form-without-a-border
         protected override void OnPaint(PaintEventArgs e)
         {
-            Rectangle rc = new Rectangle(this.ClientSize.Width - UIElements.cGrip, this.ClientSize.Height - UIElements.cGrip, UIElements.cGrip, UIElements.cGrip);
-            ControlPaint.DrawSizeGrip(e.Graphics, this.BackColor, rc);
+            Rectangle rc = new Rectangle(ClientSize.Width - UIElements.cGrip, ClientSize.Height - UIElements.cGrip, UIElements.cGrip, UIElements.cGrip);
+            ControlPaint.DrawSizeGrip(e.Graphics, BackColor, rc);
         }
 
         //Create window resize handle, from https://stackoverflow.com/questions/2575216/how-to-move-and-resize-a-form-without-a-border
@@ -89,8 +89,8 @@ namespace OpenTally
             if (m.Msg == 0x84) // Trap WM_NCHITTEST
             {
                 Point pos = new Point(m.LParam.ToInt32());
-                pos = this.PointToClient(pos);
-                if (pos.X >= this.ClientSize.Width - UIElements.cGrip && pos.Y >= this.ClientSize.Height - UIElements.cGrip)
+                pos = PointToClient(pos);
+                if (pos.X >= ClientSize.Width - UIElements.cGrip && pos.Y >= ClientSize.Height - UIElements.cGrip)
                 {
                     m.Result = (IntPtr)17; // HTBOTTOMRIGHT
                     return;
@@ -110,8 +110,8 @@ namespace OpenTally
 
         private void TrayIcon_Click(object sender, EventArgs e)
         {
-            this.Show();
-            this.WindowState = FormWindowState.Normal;
+            Show();
+            WindowState = FormWindowState.Normal;
         }
 
         private void SetupButton_Click(object sender, EventArgs e)
@@ -128,12 +128,12 @@ namespace OpenTally
 
         private void MainProgram_Resize(object sender, EventArgs e)
         {
-            if (FormWindowState.Minimized == this.WindowState)
+            if (FormWindowState.Minimized == WindowState)
             {
                 TrayIcon.Visible = true;
-                this.Hide();
+                Hide();
             }
-            else if (FormWindowState.Normal == this.WindowState)
+            else if (FormWindowState.Normal == WindowState)
             {
                 TrayIcon.Visible = false;
             }

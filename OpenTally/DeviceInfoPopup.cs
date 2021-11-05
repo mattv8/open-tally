@@ -14,8 +14,8 @@ namespace OpenTally
 
             new SiticoneShadowForm(this);
             new SiticoneDragControl(this);
-            this.DoubleBuffered = true;
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
+            DoubleBuffered = true;
+            SetStyle(ControlStyles.ResizeRedraw, true);
 
             UIElements.GetControlsOfType<Label>(this).ToList().ForEach(element => new SiticoneDragControl(element));// Make all labels dragabble
 
@@ -35,8 +35,8 @@ namespace OpenTally
         //Create window resize handle, from https://stackoverflow.com/questions/2575216/how-to-move-and-resize-a-form-without-a-border
         protected override void OnPaint(PaintEventArgs e)
         {
-            Rectangle rc = new Rectangle(this.ClientSize.Width - UIElements.cGrip, this.ClientSize.Height - UIElements.cGrip, UIElements.cGrip, UIElements.cGrip);
-            ControlPaint.DrawSizeGrip(e.Graphics, this.BackColor, rc);
+            Rectangle rc = new Rectangle(ClientSize.Width - UIElements.cGrip, ClientSize.Height - UIElements.cGrip, UIElements.cGrip, UIElements.cGrip);
+            ControlPaint.DrawSizeGrip(e.Graphics, BackColor, rc);
         }
 
         //Create window resize handle, from https://stackoverflow.com/questions/2575216/how-to-move-and-resize-a-form-without-a-border
@@ -45,8 +45,8 @@ namespace OpenTally
             if (m.Msg == 0x84) // Trap WM_NCHITTEST
             {
                 Point pos = new Point(m.LParam.ToInt32());
-                pos = this.PointToClient(pos);
-                if (pos.X >= this.ClientSize.Width - UIElements.cGrip && pos.Y >= this.ClientSize.Height - UIElements.cGrip)
+                pos = PointToClient(pos);
+                if (pos.X >= ClientSize.Width - UIElements.cGrip && pos.Y >= ClientSize.Height - UIElements.cGrip)
                 {
                     m.Result = (IntPtr)17; // HTBOTTOMRIGHT
                     return;

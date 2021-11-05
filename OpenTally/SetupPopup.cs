@@ -46,8 +46,8 @@ namespace OpenTally
 
             new SiticoneShadowForm(this);
             new SiticoneDragControl(this);
-            this.DoubleBuffered = true;
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
+            DoubleBuffered = true;
+            SetStyle(ControlStyles.ResizeRedraw, true);
 
             new SiticoneDragControl(WiredWirelessLabel);//Make dragable
             new SiticoneDragControl(MessageText);//Make dragable
@@ -61,8 +61,8 @@ namespace OpenTally
         //Create window resize handle, from https://stackoverflow.com/questions/2575216/how-to-move-and-resize-a-form-without-a-border
         protected override void OnPaint(PaintEventArgs e)
         {
-            Rectangle rc = new Rectangle(this.ClientSize.Width - UIElements.cGrip, this.ClientSize.Height - UIElements.cGrip, UIElements.cGrip, UIElements.cGrip);
-            ControlPaint.DrawSizeGrip(e.Graphics, this.BackColor, rc);
+            Rectangle rc = new Rectangle(ClientSize.Width - UIElements.cGrip, ClientSize.Height - UIElements.cGrip, UIElements.cGrip, UIElements.cGrip);
+            ControlPaint.DrawSizeGrip(e.Graphics, BackColor, rc);
         }
 
         //Create window resize handle, from https://stackoverflow.com/questions/2575216/how-to-move-and-resize-a-form-without-a-border
@@ -71,8 +71,8 @@ namespace OpenTally
             if (m.Msg == 0x84) // Trap WM_NCHITTEST
             {
                 Point pos = new Point(m.LParam.ToInt32());
-                pos = this.PointToClient(pos);
-                if (pos.X >= this.ClientSize.Width - UIElements.cGrip && pos.Y >= this.ClientSize.Height - UIElements.cGrip)
+                pos = PointToClient(pos);
+                if (pos.X >= ClientSize.Width - UIElements.cGrip && pos.Y >= ClientSize.Height - UIElements.cGrip)
                 {
                     m.Result = (IntPtr)17; // HTBOTTOMRIGHT
                     return;
@@ -107,8 +107,8 @@ namespace OpenTally
 
             TestConnectButton.Enabled = true;
 
-            UIElements.GetControlsOfType<SiticoneComboBox>(this.LayoutPanelSourceUI).ToList().ForEach(element => element.Items.Add(""));//Add blank to all source selections
-            UIElements.GetControlsOfType<SiticoneComboBox>(this.LayoutPanelSourceUI).ToList().ForEach(element => element.SelectedIndex = 0);//Required to avoid null values
+            UIElements.GetControlsOfType<SiticoneComboBox>(LayoutPanelSourceUI).ToList().ForEach(element => element.Items.Add(""));//Add blank to all source selections
+            UIElements.GetControlsOfType<SiticoneComboBox>(LayoutPanelSourceUI).ToList().ForEach(element => element.SelectedIndex = 0);//Required to avoid null values
 
             //Password encryption key loading
             pwKey = Functions.loadEncryptionKey();// Try to load the password encryption key from the registry.
@@ -136,7 +136,7 @@ namespace OpenTally
                 if (configObj.mode == OBSDirectConnect)
                 {
                     //Initialize for OBSDirectConnect mode
-                    this.Size = this.MinimumSize = new Size(this.Width, this.Height - (int)LayoutPanelAllRowHeightsPixels[2] - (int)LayoutPanelUserConfigRowHeightsPixels[2]);//Resize form to be shorter to accomodate missing controls
+                    Size = MinimumSize = new Size(Width, Height - (int)LayoutPanelAllRowHeightsPixels[2] - (int)LayoutPanelUserConfigRowHeightsPixels[2]);//Resize form to be shorter to accomodate missing controls
                     SetUIOBSDirectConnect(sender, e);//Set UI for OBS Direct Connect mode
                     WiredWirelessToggle.Checked = true;
 
@@ -144,7 +144,7 @@ namespace OpenTally
                 else if (configObj.mode == TallyServerRelay)
                 {
                     //Initialize for TallyServerRelay mode
-                    this.Size = this.MinimumSize = new Size(this.Width, this.Height - (int)LayoutPanelAllRowHeightsPixels[4]);//Resize form to be shorter
+                    Size = MinimumSize = new Size(Width, Height - (int)LayoutPanelAllRowHeightsPixels[4]);//Resize form to be shorter
                     SetUITallyServerRelay(sender, e);//Set UI for Tally Server Relay mode using function
                 }
 
@@ -177,7 +177,7 @@ namespace OpenTally
             else if (configObj.mode == null)// If there is no config.xml file found, initialize default UI as TallyServerRelay mode
             {
                 //Initialize for TallyServerRelay mode
-                this.Size = this.MinimumSize = new Size(this.Width, this.Height - (int)LayoutPanelAllRowHeightsPixels[4]);//Resize form to be shorter
+                Size = MinimumSize = new Size(Width, Height - (int)LayoutPanelAllRowHeightsPixels[4]);//Resize form to be shorter
                 SetUITallyServerRelay(sender, e);//Set UI for Tally Server Relay mode using function.
 
                 PortTextBox.Text = configObj.wsPort = TADefaultPort;
@@ -255,13 +255,13 @@ namespace OpenTally
             try
             {
                 xmlDoc.Save(Application.StartupPath + "\\config.xml");
-                this.configComplete = true;
+                configComplete = true;
             }
             catch
             {
                 MessageBox.Show("Unable to save config file.", "Failed to write file", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            this.Close();
+            Close();
         }
 
         #endregion
@@ -514,7 +514,7 @@ namespace OpenTally
             TestConnectButton.WSUpdateControl(() => { TestConnectButton.Text = "Test Connection"; TestConnectButton.FillColor = Color.Gray; });
 
             //Resize form on toggle
-            this.Size = this.MinimumSize = new Size(this.Width, this.Height - (int)LayoutPanelAllRowHeightsPixels[2] - (int)LayoutPanelUserConfigRowHeightsPixels[2] + (int)LayoutPanelAllRowHeightsPixels[4] + (int)LayoutPanelAllRowHeightsPixels[5]);//Resize form to be shorter to accomodate missing controls
+            Size = MinimumSize = new Size(Width, Height - (int)LayoutPanelAllRowHeightsPixels[2] - (int)LayoutPanelUserConfigRowHeightsPixels[2] + (int)LayoutPanelAllRowHeightsPixels[4] + (int)LayoutPanelAllRowHeightsPixels[5]);//Resize form to be shorter to accomodate missing controls
 
             //Unhide rows using saved row heights FROM wireless mode
             LayoutPanelAll.RowStyles[4].Height = LayoutPanelAllRowHeightsPercent[4];//Show the DeviceInfo, DeviceProgram row
@@ -542,7 +542,7 @@ namespace OpenTally
             TestConnectButton.WSUpdateControl(() => { TestConnectButton.Text = "Get Devices"; TestConnectButton.FillColor = Color.Gray; });
 
             //Resize form on toggle
-            this.Size = this.MinimumSize = new Size(this.Width, this.Height + (int)LayoutPanelAllRowHeightsPixels[2] + (int)LayoutPanelUserConfigRowHeightsPixels[2] - ((int)LayoutPanelAllRowHeightsPixels[4] + (int)LayoutPanelAllRowHeightsPixels[5]));//Resize form to be shorter
+            Size = MinimumSize = new Size(Width, Height + (int)LayoutPanelAllRowHeightsPixels[2] + (int)LayoutPanelUserConfigRowHeightsPixels[2] - ((int)LayoutPanelAllRowHeightsPixels[4] + (int)LayoutPanelAllRowHeightsPixels[5]));//Resize form to be shorter
 
             //Unhide rows using saved row heights FROM wired mode
             LayoutPanelAll.RowStyles[2].Height = LayoutPanelAllRowHeightsPercent[2];
