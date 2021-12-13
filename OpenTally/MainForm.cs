@@ -71,10 +71,6 @@ namespace OpenTally
             {
                 SetupButton_Click(sender, e);//Simulate setup button click
             }
-            catch
-            {
-
-            }
 
             ServerConnectionHandler();//Server Connections
             UIElements.GetControlsOfType<Label>(this).ToList().ForEach(element => new SiticoneDragControl(element));//Make all labels dragabble
