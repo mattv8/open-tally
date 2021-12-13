@@ -27,6 +27,9 @@ namespace OpenTally
         public string TADefaultPort = "4455";
         public static bool previews;
 
+        //Password Encryption Key
+        public static string pwKey = null;
+
 
         public MainForm()
         {
@@ -50,6 +53,14 @@ namespace OpenTally
             //Initialize form with only 1 row of tally labels. Adding more than 4 devices/sources will drop down second row.
             Size = MinimumSize = new Size(Width, Height - (int)tableLayout2.RowStyles[1].Height);//Resize this
             tableLayout2.RowStyles[1].Height = 0;
+
+            //Password encryption key: Generate and save to registry on first run.
+            pwKey = Functions.loadEncryptionKey();// Try to load the password encryption key from the registry.
+            if (pwKey == null)// If it's null, create a new one.
+            {
+                pwKey = Functions.RandomString(16);// Generate random string to be used for PW encryption key.
+                Functions.setEncryptionKey(pwKey);// Create the registry key containing PW encryption key.
+            }
 
             //Config Loading
             try

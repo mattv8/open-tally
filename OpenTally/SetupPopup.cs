@@ -33,9 +33,6 @@ namespace OpenTally
         // Serial vars
         public string[] serialVars;
 
-        //Password Encryption Key
-        public static string pwKey = null;
-
         public SetupPopup()
         {
             InitializeComponent();
@@ -109,15 +106,6 @@ namespace OpenTally
 
             UIElements.GetControlsOfType<SiticoneComboBox>(LayoutPanelSourceUI).ToList().ForEach(element => element.Items.Add(""));//Add blank to all source selections
             UIElements.GetControlsOfType<SiticoneComboBox>(LayoutPanelSourceUI).ToList().ForEach(element => element.SelectedIndex = 0);//Required to avoid null values
-
-            //Password encryption key loading
-            pwKey = Functions.loadEncryptionKey();// Try to load the password encryption key from the registry.
-            if (pwKey == null)// If it's null, create a new one.
-            {
-                pwKey = Functions.RandomString(16);// Generate random string to be used for PW encryption key.
-                Functions.setEncryptionKey(pwKey);// Create the registry key containing PW encryption key.
-            }
-            Console.WriteLine("Password encryption key is: " + pwKey);
 
             //Config Loading
             try
@@ -202,7 +190,7 @@ namespace OpenTally
 
             XmlNode Child1 = Root.AppendChild(xmlDoc.CreateElement("Websocket"));
             XmlAttribute ChildAtt1 = Child1.Attributes.Append(xmlDoc.CreateAttribute("password"));
-            ChildAtt1.InnerText = Functions.Encrypt(PasswordTextBox.Text, pwKey);
+            ChildAtt1.InnerText = Functions.Encrypt(PasswordTextBox.Text, MainForm.pwKey);
 
             XmlNode Child2 = Root.AppendChild(xmlDoc.CreateElement("Source1"));
             XmlAttribute ChildAtt2 = Child2.Attributes.Append(xmlDoc.CreateAttribute("name"));

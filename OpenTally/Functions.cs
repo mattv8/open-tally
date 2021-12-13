@@ -57,7 +57,7 @@ namespace OpenTally
             XmlNode eighth = xmlDoc.SelectSingleNode("root/Source8");
             configObj.source8 = eighth.Attributes["name"].Value;
             XmlNode wesPass = xmlDoc.SelectSingleNode("root/Websocket");
-            configObj.wsPassword = Decrypt(wesPass.Attributes["password"].Value, SetupPopup.pwKey);
+            configObj.wsPassword = Decrypt(wesPass.Attributes["password"].Value, MainForm.pwKey);
             XmlNode wesPort = xmlDoc.SelectSingleNode("root/WebsocketPort");
             configObj.wsPort = wesPort.Attributes["port"].Value;
             XmlNode wesAddress = xmlDoc.SelectSingleNode("root/WebsocketAddress");
@@ -296,7 +296,7 @@ namespace OpenTally
             object key = null;
             string keypath = "Software\\OpenTally";
             RegistryKey regkey = Registry.CurrentUser.OpenSubKey(keypath, true);
-            if (regkey != null)// f root key exists, continue
+            if (regkey != null)// if root key exists, continue
             {
                 key = regkey.GetValue("PWKey");//Load subkey
                 if (key != null) { return key.ToString(); }
