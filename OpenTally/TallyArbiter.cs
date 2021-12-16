@@ -26,6 +26,7 @@ namespace OpenTally
         public static string lastPreviewSource = null;
         public static string lastLiveSource = null;
         public static bool IsConnected = false;
+        public static bool firstConnect = false;
 
 
         #region -  Tally Arbiter SocketIO Functions  -
@@ -66,8 +67,10 @@ namespace OpenTally
             void socket_Connected(object data)
             {
                 Console.WriteLine("Got to socket_Connected()");
+                firstConnect = true;// This is a new connection.
+
                 socket.Emit("devices");//Get list of devices and device ID's
-                socket.Emit("bus_options");//Get Bus ID's
+                //socket.Emit("bus_options");//Get Bus ID's
             }
 
             void socket_BusOptions(object data)
@@ -95,11 +98,32 @@ namespace OpenTally
                     UIElements.GetControlsOfType<Label>(tableLayout1)[i].WSUpdateControl(() => { UIElements.GetControlsOfType<Label>(tableLayout1)[i].Text = deviceList[i].name; });
                 }
 
-                foreach (Devices device in deviceList)
+                // Establish listener connection. See the following issue for more info:
+                // https://github.com/josephdadams/TallyArbiter/pull/204#issuecomment-933751951
+                if (firstConnect)// Only do this once upon first establishing connection.
                 {
-                    string listenerType = "Wi-Fi Tally " + device.name;
-                    socket.Emit("device_listen", device.id, listenerType); //Send client type to TA server
+                    foreach (Devices device in deviceList)
+                    {
+                        listenerClient client = new listenerClient();
+                        //client.listenerType = "OpenTally_" + device.name.Replace(" ", "_");
+                        client.listenerType = "OpenTally " + device.name;
+                        client.deviceId = device.id;
+                        client.canBeReassigned = true;
+                        client.canBeFlashed = true;
+                        client.supportsChat = false;
+
+                        //string client = "{\"deviceId\": \"" + device.id + "\", \"listenerType\": \"" + listenerType.Replace(" ", "_") + "\", \"canBeReassigned\": true, \"canBeFlashed\": true, \"supportsChat\": false }";
+
+                        string deviceObj = JsonConvert.SerializeObject(client);
+                        Console.WriteLine(deviceObj);
+
+                        //socket.Emit("listenerclient_connect", device.id, listenerType.Replace(" ", "_"), canBeReassigned, canBeFlashed, supportsChat); //Send client type to TA server
+                        socket.Emit("listenerclient_connect", deviceObj); //Send client type to TA server
+
+                    }
+                    firstConnect = false;// We've connected at least once now, so set this to false.
                 }
+
                 MainForm.configObj = configObj = Functions.assignConfig(configObj, deviceList);// Assign to all configObjs
                 UIElements.WSUpdateButton("Connected.", ConnectButton, Color.Green, Color.White, "disabled");
                 UIElements.InitializeLabels(configObj, MainProgramForm, tableLayout1, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
@@ -123,8 +147,8 @@ namespace OpenTally
                     // First, get mode of each device by bus ID
                     if (getBusTypeById(state.busId) == "preview")
                     {
-                        if (state.active)
-                        {
+                        if (state.sources.Count() > 0)
+                            {
                             mode_preview = true;
                             if (!previewDevices.Any(item => item.id == state.deviceId)) { previewDevices.Add(new Devices { id = state.deviceId, name = getDeviceNameById(state.deviceId) }); }//If id isn't already in the list, add it
                         }
@@ -136,7 +160,7 @@ namespace OpenTally
                     }
                     if (getBusTypeById(state.busId) == "program")
                     {
-                        if (state.active)
+                        if (state.sources.Count() > 0)
                         {
                             mode_program = true;
                             if (!liveDevices.Any(item => item.id == state.deviceId)) { liveDevices.Add(new Devices { id = state.deviceId, name = getDeviceNameById(state.deviceId) }); }//If id isn't already in the list, add it

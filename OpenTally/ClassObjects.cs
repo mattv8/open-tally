@@ -41,25 +41,25 @@ namespace OpenTally
     {
         public string deviceId { get; set; }
         public string busId { get; set; }
-        public List<sources> sources { get; set; }
-        //public List<linkedSources> linkedSources { get; set; }
-        public List<sources> linkedSources { get; set; }
+        //public List<sources> sources { get; set; } // no longer implemented
+        public string[] sources { get; set; }
         public bool active { get; set; }
     }
 
-    public class sources
-    {
-        /* Example sources:
-         "sources": [
-          {
-            "sourceId": "TEST",
-            "address": "TEST"
-          }
-        ]
-        */
-        public string sourceId { get; set; }
-        public string address { get; set; }
-    }
+    // No longer implemented
+    //public class sources
+    //{
+    //    /* Example sources:
+    //     "sources": [
+    //      {
+    //        "sourceId": "TEST",
+    //        "address": "TEST"
+    //      }
+    //    ]
+    //    */
+    //    public string sourceId { get; set; }
+    //    public string address { get; set; }
+    //}
 
     //public class linkedSources
     //{
@@ -107,6 +107,26 @@ namespace OpenTally
         public string wsAddress { get; set; }
         public string cut_bus { get; set; }
         public string mode { get; set; }
+    }
+
+    public class listenerClient
+    {
+        /* Example listenerClient object:
+        ]
+            {
+	        "deviceId": "e8a2bd0b",
+	        "listenerType": "OpenTally_Cam_1",
+	        "canBeReassigned": true,
+	        "canBeFlashed": true,
+	        "supportsChat": false
+            }
+        ]
+        */
+        public string deviceId { get; set; }
+        public string listenerType { get; set; }
+        public bool canBeReassigned { get; set; }
+        public bool canBeFlashed { get; set; }
+        public bool supportsChat { get; set; }
     }
 
 }
