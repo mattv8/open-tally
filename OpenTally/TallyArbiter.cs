@@ -69,14 +69,6 @@ namespace OpenTally
             await socket.ConnectAsync();
             await socket.DisconnectAsync();
 
-            //void socket_Connected(object data)
-            //{
-            //    Console.WriteLine("Got to socket_Connected()");
-            //    firstConnect = true;// This is a new connection.
-
-            //    socket.emit("bus_options");//Get Bus ID's
-            //}
-
             async Task socket_BusOptions(object data)
             {
                 Console.WriteLine("Got to socket_BusOptions()");
