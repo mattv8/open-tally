@@ -262,7 +262,7 @@ namespace OpenTally
 
             if (configObj.mode == SetupPopup.TallyServerRelay)
             {
-                TallyArbiter.Connect("http://" + configObj.wsAddress + ":" + configObj.wsPort, ServerConnectButton, configObj, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, MessageText, this, tableLayout2);
+                TallyArbiter.ConnectAsync("http://" + configObj.wsAddress + ":" + configObj.wsPort, ServerConnectButton, configObj, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, MessageText, this, tableLayout2);
                 pollOBS.Enabled = false;//Disable pollOBS timer
                 pollTA.Enabled = true;//Enable pollTA timer
             }

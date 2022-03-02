@@ -1,11 +1,13 @@
 ﻿using Newtonsoft.Json;
-using Quobject.SocketIoClientDotNet.Client;// socket.io for .NET (Client)
+//using Quobject.SocketIoClientDotNet.Client;// socket.io for .NET (Client)
+using SocketIOClient;
 using Siticone.Desktop.UI.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
 namespace OpenTally
 {
@@ -21,7 +23,7 @@ namespace OpenTally
         public static bool sceneChanged = false; //Variable to store status of socket_DeviceStates()
 
 
-        public static Socket socket;
+        //public static Socket socket;
 
         public static string lastPreviewSource = null;
         public static string lastLiveSource = null;
@@ -33,65 +35,73 @@ namespace OpenTally
 
         // SocketIO Connection Handler
         //  Requires: string containing Websocket endpoint, string containing device ID, and a button to indicate connectivity
-        public static void Connect(string wsAddress, SiticoneRoundedButton ConnectButton, Config configObj, Label Source1, Label Source2, Label Source3, Label Source4, Label Source5, Label Source6, Label Source7, Label Source8, Label InfoText, Form MainProgramForm, TableLayoutPanel tableLayout1)
+        public static async Task ConnectAsync(string wsAddress, SiticoneRoundedButton ConnectButton, Config configObj, Label Source1, Label Source2, Label Source3, Label Source4, Label Source5, Label Source6, Label Source7, Label Source8, Label InfoText, Form MainProgramForm, TableLayoutPanel tableLayout1)
         {
-            socket = IO.Socket(wsAddress); // Instantiate the socket.io connection
+            //socket = IO.Socket(wsAddress); // Instantiate the socket.io connection
 
             UIElements.WSUpdateButton("Connecting...", ConnectButton, Color.Gray, Color.White, "disabled");
 
-            socket.On(Socket.EVENT_CONNECT, () => // Upon a connection event, update our status
+            socket.OnConnected += async (sender, e) =>
             {
+                // Emit a string
+                //await socket.EmitAsync("bus_options");
+                await socket.EmitAsync("devices");
+                Console.WriteLine("Got to socket_Connected()");
                 UIElements.WSUpdateButton("Connected\nLoading...", ConnectButton, Color.Green, Color.White, "disabled");
-                IsConnected = true;
-            });
-            socket.On(Socket.EVENT_CONNECT_TIMEOUT, () =>
+                IsConnected = true; firstConnect = true;
+            };
+            socket.OnDisconnected += async (sender, e) =>
             { //Disconnected
                 UIElements.WSUpdateButton("Connection\ntimeout.", ConnectButton, Color.Orange, Color.Black, "enabled");
                 UIElements.ColorAllLabels(Color.Gray, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
                 IsConnected = false;
-            });
-            socket.On(Socket.EVENT_CONNECT_ERROR, () =>
+            };
+            socket.OnError += async (sender, e) =>
             {
                 UIElements.WSUpdateButton("Not\nconnected.", ConnectButton, Color.Red, Color.White, "enabled");
                 IsConnected = false;
-                socket.Off(); //Kill the thread
-            });
-            socket.On("connect", (data) => { socket_Connected(data); });
+                //socket.Off(); //Kill the thread
+            };
             socket.On("bus_options", (data) => { socket_BusOptions(data); });
             socket.On("deviceId", (data) => { socket_deviceID(data); });
             socket.On("devices", (data) => { socket_Devices(data); });
             socket.On("device_states", (data) => { socket_DeviceStates(data); });
             socket.On("flash", (data) => { socket_Flash(data); });
             socket.On("reassign", (data) => { socket_Reassign(data); });
+            await socket.ConnectAsync();
+            await socket.DisconnectAsync();
 
-            void socket_Connected(object data)
-            {
-                Console.WriteLine("Got to socket_Connected()");
-                firstConnect = true;// This is a new connection.
+            //void socket_Connected(object data)
+            //{
+            //    Console.WriteLine("Got to socket_Connected()");
+            //    firstConnect = true;// This is a new connection.
 
-                socket.Emit("devices");//Get list of devices and device ID's
-                //socket.Emit("bus_options");//Get Bus ID's
-            }
+            //    socket.emit("bus_options");//Get Bus ID's
+            //}
 
-            void socket_BusOptions(object data)
+            async Task socket_BusOptions(object data)
             {
                 Console.WriteLine("Got to socket_BusOptions()");
                 //Console.WriteLine("Bus Options:\n" + data);
-                busses = JsonConvert.DeserializeObject<List<BusOptions>>(data.ToString());
+
+                string dataString = Functions.JSONformat(data);
+                busses = JsonConvert.DeserializeObject<List<BusOptions>>(dataString);
             }
 
-            void socket_deviceID(object data)
+            async Task socket_deviceID(object data)
             {
                 Console.WriteLine("Got to socket_deviceID()");
+                string dataString = Functions.JSONformat(data);
                 //Console.WriteLine("Device ID:\n" + data);
             }
 
-            void socket_Devices(object data)
+            async Task socket_Devices(object data)
             {
                 Console.WriteLine("Got to socket_Devices()");
                 //Console.WriteLine("Devices:\n" + data);
 
-                deviceList = JsonConvert.DeserializeObject<List<Devices>>(data.ToString());//JSON deserialize device data
+                string dataString = Functions.JSONformat(data);
+                deviceList = JsonConvert.DeserializeObject<List<Devices>>(dataString);//JSON deserialize device data
 
                 for (var i = 0; i < deviceList.Count; i++)// For each device, update Tally Label respectively
                 {
@@ -105,20 +115,20 @@ namespace OpenTally
                     foreach (Devices device in deviceList)
                     {
                         listenerClient client = new listenerClient();
-                        //client.listenerType = "OpenTally_" + device.name.Replace(" ", "_");
-                        client.listenerType = "OpenTally " + device.name;
+                        client.listenerType = "OpenTally_" + device.name.Replace(" ", "_");
+                        //client.listenerType = "OpenTally " + device.name;
                         client.deviceId = device.id;
                         client.canBeReassigned = true;
                         client.canBeFlashed = true;
                         client.supportsChat = false;
 
-                        //string client = "{\"deviceId\": \"" + device.id + "\", \"listenerType\": \"" + listenerType.Replace(" ", "_") + "\", \"canBeReassigned\": true, \"canBeFlashed\": true, \"supportsChat\": false }";
+                        //string deviceObj = "[{\"deviceId\": \"" + device.id + "\", \"listenerType\": \"" + client.listenerType + "\", \"canBeReassigned\": true, \"canBeFlashed\": true, \"supportsChat\": false }]";
 
                         string deviceObj = JsonConvert.SerializeObject(client);
                         Console.WriteLine(deviceObj);
 
                         //socket.Emit("listenerclient_connect", device.id, listenerType.Replace(" ", "_"), canBeReassigned, canBeFlashed, supportsChat); //Send client type to TA server
-                        socket.Emit("listenerclient_connect", deviceObj); //Send client type to TA server
+                        await socket.EmitAsync("listenerclient_connect", deviceObj); //Send client type to TA server
 
                     }
                     firstConnect = false;// We've connected at least once now, so set this to false.
@@ -130,12 +140,13 @@ namespace OpenTally
 
             }
 
-            void socket_DeviceStates(object data)
+            async Task socket_DeviceStates(object data)
             {
                 Console.WriteLine("Got to socket_DeviceStates()");
                 //Console.WriteLine("Device States:\n" + data);
 
-                deviceStates = JsonConvert.DeserializeObject<List<DeviceStates>>(data.ToString());
+                string dataString = Functions.JSONformat(data);//Clean up JSON object
+                deviceStates = JsonConvert.DeserializeObject<List<DeviceStates>>(dataString);
                 bool mode_preview = false;
                 bool mode_program = false;
                 sceneChanged = true; //Scene has changed, so set to true
@@ -211,15 +222,17 @@ namespace OpenTally
 
             }
 
-            void socket_Flash(object data)
+            async Task socket_Flash(object data)
             {
                 Console.WriteLine("Got to socket_Flash()");
                 Console.WriteLine("Flash data:\n" + data);
-                if (data != null)
+
+                string dataString = Functions.JSONformat(data);//Clean up JSON object
+                if (dataString != null)
                 {
-                    Label label = UIElements.getLabelByDeviceName(getDeviceNameById(data.ToString()), Color.White, configObj, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
+                    Label label = UIElements.getLabelByDeviceName(getDeviceNameById(dataString), Color.White, configObj, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
                     UIElements.Blink(label, 5);//Blink 5 times
-                    UIElements.RefreshLabels(getDeviceNameById(data.ToString()), Color.Gray, configObj, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
+                    UIElements.RefreshLabels(getDeviceNameById(dataString), Color.Gray, configObj, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
                 }
                 else
                 {
@@ -227,11 +240,12 @@ namespace OpenTally
                 }
             }
 
-            void socket_Reassign(object data)
+            async Task socket_Reassign(object data)
             {
                 Console.WriteLine("Got to socket_Reassign()");
                 Console.WriteLine("Reassignment data:\n" + data);
                 //socket.Emit("devices");//Get list of devices and device ID's
+                string dataString = Functions.JSONformat(data);//Clean up JSON object
             }
 
             string getBusTypeById(string busId)
