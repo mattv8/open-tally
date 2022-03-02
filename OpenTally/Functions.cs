@@ -70,6 +70,21 @@ namespace OpenTally
             return configObj;
         }
 
+        public static Config assignConfig(Config configObj, List<Devices> deviceList)
+        {
+            configObj = new Config();//Clear out configObj since it may have OBS values left in it
+            for (var j = 0; j < deviceList.Count; j++)// For each device, update Tally Label respectively
+            {
+                if (configObj.GetType().GetProperties()[j].ToString().Contains("source") && j <= configObj.GetType().GetProperties().Count())//If configObj is a source variable (see ClassObjects.cs -> Config class)
+                {
+                    string[] propertyName = configObj.GetType().GetProperties()[j].ToString().Split(' ');
+                    //Console.WriteLine("configObj at index " + j + "=" + propertyName[1]);
+                    configObj.GetType().GetProperty(propertyName[1]).SetValue(configObj, deviceList[j].name, null);
+                }
+            }
+            return configObj;
+        }
+
         #endregion
 
 
@@ -103,25 +118,30 @@ namespace OpenTally
 
         #endregion
 
+
+        #region -  Reflective Functions  -
+
         public static object GetPropValue(object src, string propName)
         {
             return src.GetType().GetProperty(propName).GetValue(src, null);
         }
 
-        public static Config assignConfig(Config configObj, List<Devices> deviceList)
+        // Returns deploment application information
+        // Thanks to https://stackoverflow.com/questions/6493715/how-to-get-the-current-product-version-in-c
+        public static string CurrentVersion
         {
-            configObj = new Config();//Clear out configObj since it may have OBS values left in it
-            for (var j = 0; j < deviceList.Count; j++)// For each device, update Tally Label respectively
+            get
             {
-                if (configObj.GetType().GetProperties()[j].ToString().Contains("source") && j <= configObj.GetType().GetProperties().Count())//If configObj is a source variable (see ClassObjects.cs -> Config class)
-                {
-                    string[] propertyName = configObj.GetType().GetProperties()[j].ToString().Split(' ');
-                    //Console.WriteLine("configObj at index " + j + "=" + propertyName[1]);
-                    configObj.GetType().GetProperty(propertyName[1]).SetValue(configObj, deviceList[j].name, null);
-                }
+                return ApplicationDeployment.IsNetworkDeployed
+                       ? ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString()
+                       : Assembly.GetExecutingAssembly().GetName().Version.ToString();
             }
-            return configObj;
         }
+
+        #endregion
+
+
+        #region -  Tally Functions  -
 
         public static int countSources(Config configObj)
         {
@@ -148,17 +168,8 @@ namespace OpenTally
             return tmp;
         }
 
-        // Returns deploment application information
-        // Thanks to https://stackoverflow.com/questions/6493715/how-to-get-the-current-product-version-in-c
-        public static string CurrentVersion
-        {
-            get
-            {
-                return ApplicationDeployment.IsNetworkDeployed
-                       ? ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString()
-                       : Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            }
-        }
+
+        #endregion
 
 
         #region -  Hashing, Encryption, Decryption  -
