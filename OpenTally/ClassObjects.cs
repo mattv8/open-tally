@@ -75,20 +75,19 @@ namespace OpenTally
         /* Example Bus Options:
         [
             {
-            "id": "e393251c",
-            "label": "Preview",
-            "type": "preview"
-            },
-            {
-            "id": "334e4eda",
-            "label": "Program",
-            "type": "program"
-            }
+		    "id": "e393251c",
+		    "label": "Preview",
+		    "type": "preview",
+		    "color": "#3fe481",
+		    "priority": 50
+	        }
         ]
         */
         public string id { get; set; }
         public string label { get; set; }
         public string type { get; set; }
+        public string color { get; set; }
+        public int priority { get; set; }
 
     }
 
