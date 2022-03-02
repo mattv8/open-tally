@@ -331,5 +331,27 @@ namespace OpenTally
         #endregion
 
 
+        #region -  Misc functions  -
+
+        //This function is simple. It takes in an object, probably a JSON object like the one below and trims the
+        //outer brackets to make it Newtonsoft JSON kosher:
+        /* Example Bus Options:
+        [ <<- THIS BRACKET IS TRIMMED
+            {
+		    "id": "e393251c",
+		    "label": "Preview",
+		    "type": "preview",
+		    "color": "#3fe481",
+		    "priority": 50
+            }
+        ] <<- THIS BRACKET IS TRIMMED
+        */
+        public static string JSONformat(object data) {
+            string s = data.ToString().Substring(1, data.ToString().Length - 2);//Simply trims outermost brackets from JSON string.
+            return s;
+        }
+
+        #endregion
+
     }
 }
