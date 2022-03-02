@@ -37,14 +37,12 @@ namespace OpenTally
         //  Requires: string containing Websocket endpoint, string containing device ID, and a button to indicate connectivity
         public static async Task ConnectAsync(string wsAddress, SiticoneRoundedButton ConnectButton, Config configObj, Label Source1, Label Source2, Label Source3, Label Source4, Label Source5, Label Source6, Label Source7, Label Source8, Label InfoText, Form MainProgramForm, TableLayoutPanel tableLayout1)
         {
-            //socket = IO.Socket(wsAddress); // Instantiate the socket.io connection
+            var socket = new SocketIO(wsAddress); // Instantiate the socket.io connection
 
             UIElements.WSUpdateButton("Connecting...", ConnectButton, Color.Gray, Color.White, "disabled");
 
             socket.OnConnected += async (sender, e) =>
             {
-                // Emit a string
-                //await socket.EmitAsync("bus_options");
                 await socket.EmitAsync("devices");
                 Console.WriteLine("Got to socket_Connected()");
                 UIElements.WSUpdateButton("Connected\nLoading...", ConnectButton, Color.Green, Color.White, "disabled");
@@ -280,27 +278,26 @@ namespace OpenTally
         {
             label.WSUpdateControl(() => { label.Text = "Testing connection to " + wsAddress; });
 
-            var socket = IO.Socket(wsAddress); // Instantiate the socket.io connection
+            var socket = new SocketIO(wsAddress); // Instantiate the socket.io connection
             UIElements.WSUpdateButton("Connecting...", button, Color.Yellow, Color.Black, "disabled");
 
-            socket.On(Socket.EVENT_CONNECT, () => // Upon a connection event, update our status
+            socket.OnConnected += async (sender, e) =>
             {
                 UIElements.WSUpdateButton("Connected.", button, Color.Green, Color.White, "disabled");
                 label.WSUpdateControl(() => { label.Text = "Successfully connected to " + wsAddress; });
-                socket.Off(); //Kill the thread
-            });
-            socket.On(Socket.EVENT_CONNECT_TIMEOUT, () =>
+            };
+            socket.OnDisconnected += async (sender, e) =>
             { //Disconnected
                 UIElements.WSUpdateButton("Connection timeout.", button, Color.Orange, Color.White, "enabled");
                 label.WSUpdateControl(() => { label.Text = "Conection to " + wsAddress + " timed out."; });
-                socket.Off(); //Kill the thread
-            });
-            socket.On(Socket.EVENT_CONNECT_ERROR, () =>
+                IsConnected = false;
+            };
+            socket.OnError += async (sender, e) =>
             {
                 UIElements.WSUpdateButton("Connection failure.", button, Color.Red, Color.White, "enabled");
                 label.WSUpdateControl(() => { label.Text = "Conection to " + wsAddress + " failed."; });
-                socket.Off(); //Kill the thread
-            });
+                IsConnected = false;
+            };
 
         }
 
