@@ -48,13 +48,13 @@ namespace OpenTally
                 UIElements.WSUpdateButton("Connected\nLoading...", ConnectButton, Color.Green, Color.White, "disabled");
                 IsConnected = true; firstConnect = true;
             };
-            socket.OnDisconnected += async (sender, e) =>
-            { //Disconnected
+            socket.OnDisconnected += async (sender, e) => //Disconnected
+            { 
                 UIElements.WSUpdateButton("Connection\ntimeout.", ConnectButton, Color.Orange, Color.Black, "enabled");
                 UIElements.ColorAllLabels(Color.Gray, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
                 IsConnected = false;
             };
-            socket.OnError += async (sender, e) =>
+            socket.OnError += async (sender, e) => //Connection Error
             {
                 UIElements.WSUpdateButton("Not\nconnected.", ConnectButton, Color.Red, Color.White, "enabled");
                 IsConnected = false;
