@@ -14,21 +14,22 @@ namespace OpenTally
     class TallyArbiter
     {
 
-        // JSON Classes
-        public static List<Devices> deviceList = new List<Devices>(); //Initialize list
-        public static List<DeviceStates> deviceStates = new List<DeviceStates>(); //Initialize list
-        public static List<BusOptions> busses = new List<BusOptions>(); //Initialize list
+        // JSON Classes (private)
+        private static List<Devices> deviceList = new List<Devices>(); //Initialize list
+        private static List<DeviceStates> deviceStates = new List<DeviceStates>(); //Initialize list
+        private static List<BusOptions> busses = new List<BusOptions>(); //Initialize list
+
+        // JSON Classes (public)
         public static List<Devices> previewDevices = new List<Devices>(); //Initialize list
         public static List<Devices> liveDevices = new List<Devices>(); //Initialize list
         public static bool sceneChanged = false; //Variable to store status of socket_DeviceStates()
 
 
         //public static Socket socket;
-
         public static string lastPreviewSource = null;
         public static string lastLiveSource = null;
         public static bool IsConnected = false;
-        public static bool firstConnect = false;
+        private static bool firstConnect = false;
 
 
         #region -  Tally Arbiter SocketIO Functions  -
