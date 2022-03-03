@@ -257,6 +257,16 @@ namespace OpenTally
                 }
                 return "invalid";
             }
+            
+            string getDeviceNameByInternalId(string deviceId)
+            {
+                foreach (listenerClient client in listenerClients)//For each device in the deviceList
+                {
+                    if (client.internalId == deviceId) { return client.name; }
+                    //else { Console.WriteLine("getDeviceNameById(): Device with ID " + deviceId + " not found"); }
+                }
+                return "invalid";
+            }
         }
 
         #endregion
