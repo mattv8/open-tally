@@ -95,7 +95,13 @@ namespace OpenTally
                 string dataString = Functions.JSONformat(data);
                 deviceList = JsonConvert.DeserializeObject<List<Devices>>(dataString);//JSON deserialize device data
 
-                for (var i = 0; i < deviceList.Count; i++)// For each device, update Tally Label respectively
+                //Store device data in the configObj and update all labels
+                MainForm.configObj = configObj = Functions.assignConfig(configObj, deviceList);// Assign to all configObjs
+                UIElements.WSUpdateButton("Connected.", ConnectButton, Color.Green, Color.White, "disabled");
+                UIElements.InitializeLabels(configObj, MainProgramForm, tableLayout1, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
+
+                // For each device, update Tally Label respectively
+                for (var i = 0; i < deviceList.Count; i++)
                 {
                     UIElements.GetControlsOfType<Label>(tableLayout1)[i].WSUpdateControl(() => { UIElements.GetControlsOfType<Label>(tableLayout1)[i].Text = deviceList[i].name; });
                 }
@@ -106,30 +112,27 @@ namespace OpenTally
                 {
                     foreach (Devices device in deviceList)
                     {
+                        //Programmatically get OpenTally label name to send to TA
+                        string labelName = UIElements.getLabelByDeviceName(getDeviceNameById(device.id), Color.White, configObj, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText).Name;
+
                         //Create the device object
                         listenerClient client = new listenerClient();
-                        client.listenerType = "OpenTally " + device.name;
+                        client.listenerType = "OpenTally " + labelName;
                         client.internalId = Functions.RandomString(8);
                         client.deviceId = device.id;
                         client.canBeReassigned = true;
                         client.canBeFlashed = true;
                         client.supportsChat = false;
-                        string deviceObj = JsonConvert.SerializeObject(client);
-
-                        await socket.EmitAsync("listenerclient_connect", deviceObj); //Send client type to TA server
-                        //Console.WriteLine("Emitted: " + deviceObj);
+                        await socket.EmitAsync("listenerclient_connect", JsonConvert.SerializeObject(client)); //Send JSON object to TA server
 
                         // Create a public list to track internal client ID's
                         if (!listenerClients.Any(item => item.internalId == client.internalId)) { listenerClients.Add(new listenerClient { internalId = client.internalId, deviceId = device.id, name = device.name }); }//If id isn't already in the list, add it
+
                     }
                     firstConnect = false;// We've connected at least once now, so set this to false.
                     Console.WriteLine("Internal listener clients:");
                     foreach (listenerClient client in listenerClients) { Console.WriteLine("Internal ID: " + client.internalId + ", TA ID: " + client.deviceId + ", Name: " + client.name); }
                 }
-
-                MainForm.configObj = configObj = Functions.assignConfig(configObj, deviceList);// Assign to all configObjs
-                UIElements.WSUpdateButton("Connected.", ConnectButton, Color.Green, Color.White, "disabled");
-                UIElements.InitializeLabels(configObj, MainProgramForm, tableLayout1, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
 
             }
 
