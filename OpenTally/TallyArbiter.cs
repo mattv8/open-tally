@@ -76,14 +76,14 @@ namespace OpenTally
                 Console.WriteLine("Got to socket_BusOptions()");
                 //Console.WriteLine("Bus Options:\n" + data);
 
-                string dataString = Functions.JSONformat(data);
+                string dataString = Functions.JSONformat(data);//Trim outer brackets sent by TA
                 busses = JsonConvert.DeserializeObject<List<BusOptions>>(dataString);
             }
 
             async Task socket_deviceID(object data)
             {
                 Console.WriteLine("Got to socket_deviceID()");
-                string dataString = Functions.JSONformat(data);
+                string dataString = Functions.JSONformat(data);//Trim outer brackets sent by TA
                 //Console.WriteLine("Device ID:\n" + data);
             }
 
@@ -92,7 +92,7 @@ namespace OpenTally
                 Console.WriteLine("Got to socket_Devices()");
                 //Console.WriteLine("Devices:\n" + data);
 
-                string dataString = Functions.JSONformat(data);
+                string dataString = Functions.JSONformat(data);//Trim outer brackets sent by TA
                 deviceList = JsonConvert.DeserializeObject<List<Devices>>(dataString);//JSON deserialize device data
 
                 //Store device data in the configObj and update all labels
@@ -141,7 +141,7 @@ namespace OpenTally
                 Console.WriteLine("Got to socket_DeviceStates()");
                 //Console.WriteLine("Device States:\n" + data);
 
-                string dataString = Functions.JSONformat(data);//Clean up JSON object
+                string dataString = Functions.JSONformat(data);//Trim outer brackets sent by TA
                 deviceStates = JsonConvert.DeserializeObject<List<DeviceStates>>(dataString);
                 bool mode_preview = false;
                 bool mode_program = false;
@@ -223,7 +223,7 @@ namespace OpenTally
                 Console.WriteLine("Got to socket_Flash()");
                 //Console.WriteLine("Flash data:\n" + Functions.JSONformat(data));
 
-                string flashedDevice = data.ToString().Substring(2, data.ToString().Length - 4);
+                string flashedDevice = data.ToString().Substring(2, data.ToString().Length - 4);//Trim outer brackets and quotation marks sent by TA
                 Console.WriteLine("Flash data:\n" + getDeviceNameByInternalId(flashedDevice));
 
                 if (flashedDevice != null)
@@ -243,7 +243,7 @@ namespace OpenTally
                 //Reassignment data: ["FROM","TO","internalId"]
                 Console.WriteLine("Got to socket_Reassign()");
                 Console.WriteLine("Reassignment data:\n" + data);
-                string dataString = Functions.JSONformat(data);//Clean up JSON object
+                string dataString = Functions.JSONformat(data);//Trim outer brackets sent by TA
             }
 
             string getBusTypeById(string busId)
