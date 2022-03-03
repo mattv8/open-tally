@@ -22,6 +22,7 @@ namespace OpenTally
         // JSON Classes (public)
         public static List<Devices> previewDevices = new List<Devices>(); //Initialize list
         public static List<Devices> liveDevices = new List<Devices>(); //Initialize list
+        public static List<listenerClient> listenerClients = new List<listenerClient>(); //Initialize list
         public static bool sceneChanged = false; //Variable to store status of socket_DeviceStates()
 
 
@@ -105,9 +106,10 @@ namespace OpenTally
                 {
                     foreach (Devices device in deviceList)
                     {
+                        //Create the device object
                         listenerClient client = new listenerClient();
-                        //client.listenerType = "OpenTally " + device.name;
                         client.listenerType = "OpenTally " + device.name;
+                        client.internalId = Functions.RandomString(8);
                         client.deviceId = device.id;
                         client.canBeReassigned = true;
                         client.canBeFlashed = true;
@@ -116,8 +118,12 @@ namespace OpenTally
 
                         await socket.EmitAsync("listenerclient_connect", deviceObj); //Send client type to TA server
 
+                        // Create a public list to track internal client ID's
+                        if (!listenerClients.Any(item => item.internalId == client.internalId)) { listenerClients.Add(new listenerClient { internalId = client.internalId, deviceId = device.id, name = device.name }); }//If id isn't already in the list, add it
                     }
                     firstConnect = false;// We've connected at least once now, so set this to false.
+                    Console.WriteLine("Internal listener clients:");
+                    foreach (listenerClient client in listenerClients) { Console.WriteLine("Internal ID: " + client.internalId + ", TA ID: " + client.deviceId + ", Name: " + client.name); }
                 }
 
                 MainForm.configObj = configObj = Functions.assignConfig(configObj, deviceList);// Assign to all configObjs

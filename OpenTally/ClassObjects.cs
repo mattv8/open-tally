@@ -122,7 +122,10 @@ namespace OpenTally
         ]
         */
         public string deviceId { get; set; }
+        public string internalId { get; set; }
         public string listenerType { get; set; }
+        public string name { get; set; }
+
         public bool canBeReassigned { get; set; }
         public bool canBeFlashed { get; set; }
         public bool supportsChat { get; set; }
