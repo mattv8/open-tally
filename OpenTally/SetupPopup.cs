@@ -294,7 +294,11 @@ namespace OpenTally
             else if (mode == TallyServerRelay)
             {
                 Console.WriteLine("Testing TallyArbiter connection");
-                TallyArbiter.TestConnection("http://" + configObj.wsAddress + ":" + configObj.wsPort, TestConnectButton, MessageText);
+                if (TallyArbiter.IsConnected != true)
+                {
+                    TallyArbiter.TestConnection("http://" + configObj.wsAddress + ":" + configObj.wsPort, TestConnectButton, MessageText);
+                }
+                else { UIElements.WSUpdateButton("Connected.", TestConnectButton, Color.Green, Color.White, "disabled"); }
             }
         }
 
@@ -489,7 +493,7 @@ namespace OpenTally
         private void SetUITallyServerRelay(object sender, EventArgs e)
         {
             mode = TallyServerRelay;
-            if (TallyArbiter.socket != null) { TallyArbiter.socket.Off(); } //Kill any existing socket
+            //if (TallyArbiter.socket != null) { TallyArbiter.socket.Off(); } //Kill any existing socket
 
             //Change description text
             WiredWirelessLabel.Text = TallyServerRelay;
@@ -517,7 +521,7 @@ namespace OpenTally
         private void SetUIOBSDirectConnect(object sender, EventArgs e)
         {
             mode = OBSDirectConnect;
-            if (TallyArbiter.socket != null) { TallyArbiter.socket.Off(); } //Kill any existing socket
+            //if (TallyArbiter.socket != null) { TallyArbiter.socket.Off(); } //Kill any existing socket
 
             //Change description text
             WiredWirelessLabel.Text = OBSDirectConnect;
