@@ -105,19 +105,14 @@ namespace OpenTally
                     foreach (Devices device in deviceList)
                     {
                         listenerClient client = new listenerClient();
-                        client.listenerType = "OpenTally_" + device.name.Replace(" ", "_");
                         //client.listenerType = "OpenTally " + device.name;
+                        client.listenerType = "OpenTally " + device.name;
                         client.deviceId = device.id;
                         client.canBeReassigned = true;
                         client.canBeFlashed = true;
                         client.supportsChat = false;
-
-                        //string deviceObj = "[{\"deviceId\": \"" + device.id + "\", \"listenerType\": \"" + client.listenerType + "\", \"canBeReassigned\": true, \"canBeFlashed\": true, \"supportsChat\": false }]";
-
                         string deviceObj = JsonConvert.SerializeObject(client);
-                        Console.WriteLine(deviceObj);
 
-                        //socket.Emit("listenerclient_connect", device.id, listenerType.Replace(" ", "_"), canBeReassigned, canBeFlashed, supportsChat); //Send client type to TA server
                         await socket.EmitAsync("listenerclient_connect", deviceObj); //Send client type to TA server
 
                     }
@@ -215,7 +210,7 @@ namespace OpenTally
             async Task socket_Flash(object data)
             {
                 Console.WriteLine("Got to socket_Flash()");
-                Console.WriteLine("Flash data:\n" + data);
+                //Console.WriteLine("Flash data:\n" + Functions.JSONformat(data));
 
                 string dataString = Functions.JSONformat(data);//Clean up JSON object
                 if (dataString != null)
@@ -232,9 +227,9 @@ namespace OpenTally
 
             async Task socket_Reassign(object data)
             {
+                //Reassignment data: ["FROM","TO","internalId"]
                 Console.WriteLine("Got to socket_Reassign()");
                 Console.WriteLine("Reassignment data:\n" + data);
-                //socket.Emit("devices");//Get list of devices and device ID's
                 string dataString = Functions.JSONformat(data);//Clean up JSON object
             }
 
