@@ -117,6 +117,7 @@ namespace OpenTally
                         string deviceObj = JsonConvert.SerializeObject(client);
 
                         await socket.EmitAsync("listenerclient_connect", deviceObj); //Send client type to TA server
+                        //Console.WriteLine("Emitted: " + deviceObj);
 
                         // Create a public list to track internal client ID's
                         if (!listenerClients.Any(item => item.internalId == client.internalId)) { listenerClients.Add(new listenerClient { internalId = client.internalId, deviceId = device.id, name = device.name }); }//If id isn't already in the list, add it
@@ -219,12 +220,14 @@ namespace OpenTally
                 Console.WriteLine("Got to socket_Flash()");
                 //Console.WriteLine("Flash data:\n" + Functions.JSONformat(data));
 
-                string dataString = Functions.JSONformat(data);//Clean up JSON object
-                if (dataString != null)
+                string flashedDevice = data.ToString().Substring(2, data.ToString().Length - 4);
+                Console.WriteLine("Flash data:\n" + getDeviceNameByInternalId(flashedDevice));
+
+                if (flashedDevice != null)
                 {
-                    Label label = UIElements.getLabelByDeviceName(getDeviceNameById(dataString), Color.White, configObj, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
+                    Label label = UIElements.getLabelByDeviceName(getDeviceNameByInternalId(flashedDevice), Color.White, configObj, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
                     UIElements.Blink(label, 5);//Blink 5 times
-                    UIElements.RefreshLabels(getDeviceNameById(dataString), Color.Gray, configObj, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
+                    UIElements.RefreshLabels(getDeviceNameByInternalId(flashedDevice), Color.Gray, configObj, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
                 }
                 else
                 {
