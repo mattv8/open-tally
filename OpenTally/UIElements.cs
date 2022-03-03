@@ -252,13 +252,14 @@ namespace OpenTally
         public static async void Blink(Label label, int numBlinks)
         {
             int blinks = 0;
+            Color ogColor = label.BackColor;//Store initial color
             while (blinks <= numBlinks)
             {
                 await Task.Delay(500);
-                label.BackColor = label.BackColor == Color.Red ? Color.Green : Color.Red;
+                label.BackColor = label.BackColor == ogColor ? Color.Blue : ogColor;
                 blinks++;
             }
-            label.WSUpdateControl(() => { label.BackColor = Color.Transparent; });//This line needs to come out when TA starts sending me flash data
+            label.WSUpdateControl(() => { label.BackColor = ogColor; });//Reset initial color
         }
 
         #endregion
