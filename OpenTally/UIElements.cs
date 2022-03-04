@@ -227,7 +227,7 @@ namespace OpenTally
         }
 
         // Get label ID from config by device name
-        public static Label getLabelByDeviceName(string device, Color color, Config configObj, Label Source1, Label Source2, Label Source3, Label Source4, Label Source5, Label Source6, Label Source7, Label Source8, Label InfoText)
+        public static Label getLabelByDeviceName(string device, Config configObj, Label Source1, Label Source2, Label Source3, Label Source4, Label Source5, Label Source6, Label Source7, Label Source8, Label InfoText)
         {
             Label label;
 

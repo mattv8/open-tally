@@ -113,7 +113,7 @@ namespace OpenTally
                     foreach (Devices device in deviceList)
                     {
                         //Programmatically get OpenTally label name to send to TA
-                        string labelName = UIElements.getLabelByDeviceName(getDeviceNameById(device.id), Color.White, configObj, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText).Name;
+                        string labelName = UIElements.getLabelByDeviceName(device.name, MainForm.configObj, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText).Name;
 
                         //Create the device object
                         listenerClient client = new listenerClient();
@@ -228,7 +228,7 @@ namespace OpenTally
 
                 if (flashedDevice != null)
                 {
-                    Label label = UIElements.getLabelByDeviceName(getDeviceNameByInternalId(flashedDevice), Color.White, configObj, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
+                    Label label = UIElements.getLabelByDeviceName(getDeviceNameByInternalId(flashedDevice), configObj, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
                     UIElements.Blink(label, 5);//Blink 5 times
                     UIElements.RefreshLabels(getDeviceNameByInternalId(flashedDevice), Color.Gray, configObj, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
                 }
