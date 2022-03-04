@@ -233,12 +233,12 @@ namespace OpenTally
 
             if (device == configObj.source1) { label = Source1; }
             else if (device == configObj.source2) { label = Source2; }
-            else if (device == configObj.source2) { label = Source3; }
-            else if (device == configObj.source2) { label = Source4; }
-            else if (device == configObj.source2) { label = Source5; }
-            else if (device == configObj.source2) { label = Source6; }
-            else if (device == configObj.source2) { label = Source7; }
-            else if (device == configObj.source2) { label = Source8; }
+            else if (device == configObj.source3) { label = Source3; }
+            else if (device == configObj.source4) { label = Source4; }
+            else if (device == configObj.source5) { label = Source5; }
+            else if (device == configObj.source6) { label = Source6; }
+            else if (device == configObj.source7) { label = Source7; }
+            else if (device == configObj.source8) { label = Source8; }
             else
             {
                 label = InfoText;
