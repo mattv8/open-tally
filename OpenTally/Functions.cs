@@ -351,6 +351,15 @@ namespace OpenTally
             return s;
         }
 
+        // https://stackoverflow.com/questions/2094239/swap-two-items-in-listt
+        // Call it like (no returns): Functions.Swap(deviceList, oldDeviceIndex, newDeviceIndex);
+        public static void Swap<T>(IList<T> list, int indexA, int indexB)
+        {
+            T tmp = list[indexA];
+            list[indexA] = list[indexB];
+            list[indexB] = tmp;
+        }
+
         #endregion
 
     }
