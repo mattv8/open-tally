@@ -95,21 +95,17 @@ namespace OpenTally
                 string dataString = Functions.JSONformat(data);//Trim outer brackets sent by TA
                 deviceList = JsonConvert.DeserializeObject<List<Devices>>(dataString);//JSON deserialize device data
 
-                //Store device data in the configObj and update all labels
-                MainForm.configObj = configObj = Functions.assignConfig(configObj, deviceList);// Assign to all configObjs
-                UIElements.WSUpdateButton("Connected.", ConnectButton, Color.Green, Color.White, "disabled");
-                UIElements.InitializeLabels(configObj, MainProgramForm, tableLayout1, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
-
-                // For each device, update Tally Label respectively
-                for (var i = 0; i < deviceList.Count; i++)
-                {
-                    UIElements.GetControlsOfType<Label>(tableLayout1)[i].WSUpdateControl(() => { UIElements.GetControlsOfType<Label>(tableLayout1)[i].Text = deviceList[i].name; });
-                }
 
                 // Establish listener connection. See the following issue for more info:
                 // https://github.com/josephdadams/TallyArbiter/pull/204#issuecomment-933751951
                 if (firstConnect)// Only do this once upon first establishing connection.
                 {
+
+                    //Store device data in the configObj and update all labels
+                    MainForm.configObj = configObj = Functions.assignConfig(configObj, deviceList);// Assign to all configObjs
+                    UIElements.WSUpdateButton("Connected.", ConnectButton, Color.Green, Color.White, "disabled");
+                    UIElements.InitializeLabels(configObj, MainProgramForm, tableLayout1, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
+
                     foreach (Devices device in deviceList)
                     {
                         //Programmatically get OpenTally label name to send to TA
