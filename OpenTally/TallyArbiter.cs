@@ -124,6 +124,10 @@ namespace OpenTally
                         // Create a public list to track internal client ID's
                         if (!listenerClients.Any(item => item.internalId == client.internalId)) { listenerClients.Add(new listenerClient { internalId = client.internalId, deviceId = device.id, name = device.name }); }//If id isn't already in the list, add it
 
+                        // Add the internalId's to the public deviceList (CAN'T USE THIS BECAUSE DEVICELIST IS OVERWRITTEN EACH TIME WE MAKE IT TO SOCKET.ON("DEVICES")
+                        //int index = deviceList.FindIndex(item => item.id == device.id);// Get index from deviceList to add internalId
+                        //if (index != -1) { deviceList[index].internalId = client.internalId; }// Add the internalId
+
                     }
                     firstConnect = false;// We've connected at least once now, so set this to false.
                 }// end firstConnect
