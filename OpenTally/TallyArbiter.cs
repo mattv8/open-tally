@@ -15,11 +15,11 @@ namespace OpenTally
     {
 
         // JSON Classes (private)
-        private static List<Devices> deviceList = new List<Devices>(); //Initialize list
         private static List<DeviceStates> deviceStates = new List<DeviceStates>(); //Initialize list
         private static List<BusOptions> busses = new List<BusOptions>(); //Initialize list
 
         // JSON Classes (public)
+        public static List<Devices> deviceList = new List<Devices>(); //Initialize list
         public static List<Devices> previewDevices = new List<Devices>(); //Initialize list
         public static List<Devices> liveDevices = new List<Devices>(); //Initialize list
         public static List<listenerClient> listenerClients = new List<listenerClient>(); //Initialize list
