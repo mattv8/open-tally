@@ -116,7 +116,7 @@ namespace OpenTally
                         client.listenerType = "OpenTally " + labelName;
                         client.internalId = Functions.RandomString(8);
                         client.deviceId = device.id;
-                        client.canBeReassigned = true;
+                        client.canBeReassigned = false;
                         client.canBeFlashed = true;
                         client.supportsChat = false;
                         await socket.EmitAsync("listenerclient_connect", JsonConvert.SerializeObject(client)); //Send JSON object to TA server
@@ -126,9 +126,7 @@ namespace OpenTally
 
                     }
                     firstConnect = false;// We've connected at least once now, so set this to false.
-                    Console.WriteLine("Internal listener clients:");
-                    foreach (listenerClient client in listenerClients) { Console.WriteLine("Internal ID: " + client.internalId + ", TA ID: " + client.deviceId + ", Name: " + client.name); }
-                }
+                }// end firstConnect
 
             }
 
@@ -236,10 +234,33 @@ namespace OpenTally
 
             async Task socket_Reassign(object data)
             {
-                //Reassignment data: ["FROM","TO","internalId"]
+                //Reassignment data looks like this: ["FROM","TO","internalId"], i.e. ["7714064f","3bcc67eb","xpg9oxe7"]
                 Console.WriteLine("Got to socket_Reassign()");
-                Console.WriteLine("Reassignment data:\n" + data);
-                string dataString = Functions.JSONformat(data);//Trim outer brackets sent by TA
+                //Console.WriteLine("Reassignment data:\n" + data);
+
+                string[] reassignment = Functions.JSONformat(data).Split(',');//Trim outer brackets sent by TA
+                string oldDeviceId = reassignment[0].Replace("\"", "");
+                string newDeviceId = reassignment[1].Replace("\"", "");
+                string internalId = reassignment[2].Replace("\"", "");
+                string newDeviceName = reassignment[3].Replace("\"", "");
+
+                Console.WriteLine("Received: " + getDeviceNameById(oldDeviceId) + " (" + oldDeviceId + "), " + getDeviceNameById(newDeviceId) + " (" + newDeviceId + ")");
+
+                int index = deviceList.FindIndex(item => item.id == oldDeviceId);// Get index from deviceList to reassign
+                if (index != -1)
+                {
+                    //deviceList[index].id = newDeviceId;
+                    deviceList[index].name = newDeviceName;// Do the reassignment
+                }
+
+                for (var i = 0; i < deviceList.Count; i++)// For each device, update Tally Label respectively without resizing text
+                {
+                    UIElements.GetControlsOfType<Label>(tableLayout1)[i].WSUpdateControl(() => { UIElements.GetControlsOfType<Label>(tableLayout1)[i].Text = deviceList[i].name; });
+                }
+
+                await socket.EmitAsync("listener_reassign", oldDeviceId, newDeviceId); //Send JSON object to TA server
+                Console.WriteLine("Emitted: " + getDeviceNameById(oldDeviceId) + " ("+oldDeviceId+"), " + getDeviceNameById(newDeviceId) + " (" + newDeviceId + ")");
+
             }
 
             string getBusTypeById(string busId)
