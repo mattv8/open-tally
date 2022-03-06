@@ -95,6 +95,8 @@ namespace OpenTally
                 string dataString = Functions.JSONformat(data);//Trim outer brackets sent by TA
                 deviceList = JsonConvert.DeserializeObject<List<Devices>>(dataString);//JSON deserialize device data
 
+                //Console.WriteLine("Latest device list:");
+                //foreach (Devices device in deviceList) { Console.WriteLine("TA ID: " + device.id + ", Name: " + device.name); }
 
                 // Establish listener connection. See the following issue for more info:
                 // https://github.com/josephdadams/TallyArbiter/pull/204#issuecomment-933751951
