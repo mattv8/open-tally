@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 //using Quobject.SocketIoClientDotNet.Client;// socket.io for .NET (Client)
 using SocketIOClient;
-using Siticone.Desktop.UI.WinForms;
+//using Siticone.Desktop.UI.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace OpenTally
 {
+    // Define an alias for the SocketIOClient namespace to avoid conflicts
+    using SocketIONamespace = SocketIOClient;
+
     class TallyArbiter
     {
 
@@ -32,14 +35,13 @@ namespace OpenTally
         public static bool IsConnected = false;
         private static bool firstConnect = false;
 
-
         #region -  Tally Arbiter SocketIO Functions  -
 
         // SocketIO Connection Handler
         //  Requires: string containing Websocket endpoint, string containing device ID, and a button to indicate connectivity
-        public static async Task ConnectAsync(string wsAddress, SiticoneRoundedButton ConnectButton, Config configObj, Label Source1, Label Source2, Label Source3, Label Source4, Label Source5, Label Source6, Label Source7, Label Source8, Label InfoText, Form MainProgramForm, TableLayoutPanel tableLayout1)
+        public static async Task ConnectAsync(string wsAddress, Button ConnectButton, Config configObj, Label Source1, Label Source2, Label Source3, Label Source4, Label Source5, Label Source6, Label Source7, Label Source8, Label InfoText, Form MainProgramForm, TableLayoutPanel tableLayout1)
         {
-            var socket = new SocketIO(wsAddress); // Instantiate the socket.io connection
+            var socket = new SocketIONamespace.SocketIO(wsAddress); // Instantiate the socket.io connection
 
             UIElements.WSUpdateButton("Connecting...", ConnectButton, Color.Gray, Color.White, "disabled");
 
@@ -89,8 +91,8 @@ namespace OpenTally
 
             async Task socket_Devices(object data)
             {
-                Console.WriteLine("Got to socket_Devices()");
-                //Console.WriteLine("Devices:\n" + data);
+                //Console.WriteLine("Got to socket_Devices()");
+                Console.WriteLine("Devices:\n" + data);
 
                 string dataString = Functions.JSONformat(data);//Trim outer brackets sent by TA
                 deviceList = JsonConvert.DeserializeObject<List<Devices>>(dataString);//JSON deserialize device data
@@ -122,6 +124,7 @@ namespace OpenTally
                         client.canBeFlashed = true;
                         client.supportsChat = false;
                         await socket.EmitAsync("listenerclient_connect", JsonConvert.SerializeObject(client)); //Send JSON object to TA server
+                        Console.WriteLine("emitted JSON object: " + JsonConvert.SerializeObject(client));
 
                         // Create a public list to track internal client ID's
                         if (!listenerClients.Any(item => item.internalId == client.internalId)) { listenerClients.Add(new listenerClient { internalId = client.internalId, deviceId = device.id, name = device.name }); }//If id isn't already in the list, add it
@@ -138,7 +141,7 @@ namespace OpenTally
 
             async Task socket_DeviceStates(object data)
             {
-                Console.WriteLine("Got to socket_DeviceStates()");
+                //Console.WriteLine("Got to socket_DeviceStates()");
                 //Console.WriteLine("Device States:\n" + data);
 
                 string dataString = Functions.JSONformat(data);//Trim outer brackets sent by TA
@@ -180,7 +183,7 @@ namespace OpenTally
                     }
 
                     // Then, color labels by active mode
-                    if (mode_preview && !mode_program)//PREVIEW
+                    if (mode_preview && !mode_program && MainForm.previews)//PREVIEW
                     {
                         //Console.WriteLine("Device " + getDeviceNameById(state.deviceId) + " is in " + getBusTypeById(state.busId));
                         UIElements.RefreshLabels(getDeviceNameById(state.deviceId), Color.Green, configObj, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, InfoText);
@@ -307,11 +310,12 @@ namespace OpenTally
 
         // Simple SocketIO Connection Test Function
         //  Requires: string containing Websocket endpoint, string containing device ID, and a button to indicate connectivity
-        public static void TestConnection(string wsAddress, SiticoneRoundedButton button, Label label)
+        public static void TestConnection(string wsAddress, Button button, Label label)
         {
             label.WSUpdateControl(() => { label.Text = "Testing connection to " + wsAddress; });
 
-            var socket = new SocketIO(wsAddress); // Instantiate the socket.io connection
+            var socket = new SocketIONamespace.SocketIO(wsAddress); // Instantiate the socket.io connection
+
             UIElements.WSUpdateButton("Connecting...", button, Color.Yellow, Color.Black, "disabled");
 
             socket.OnConnected += async (sender, e) =>

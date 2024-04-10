@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SendToDeviceButton = new Siticone.Desktop.UI.WinForms.SiticoneRoundedButton();
+            this.SendToDeviceButton = new System.Windows.Forms.Button();
             this.tableLayout1 = new System.Windows.Forms.TableLayoutPanel();
-            this.DefaultCustomComboBox = new Siticone.Desktop.UI.WinForms.SiticoneRoundedComboBox();
+            this.DefaultCustomComboBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.siticoneTextBox4 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,22 +54,22 @@
             this.SendToDeviceButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.SendToDeviceButton.BorderRadius = 16;
-            this.SendToDeviceButton.CheckedState.Parent = this.SendToDeviceButton;
-            this.SendToDeviceButton.CustomImages.Parent = this.SendToDeviceButton;
-            this.SendToDeviceButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.SendToDeviceButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.SendToDeviceButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.SendToDeviceButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.SendToDeviceButton.DisabledState.Parent = this.SendToDeviceButton;
-            this.SendToDeviceButton.FillColor = System.Drawing.Color.Gray;
+            //this.SendToDeviceButton.BorderRadius = 16;
+            //this.SendToDeviceButton.CheckedState.Parent = this.SendToDeviceButton;
+            //this.SendToDeviceButton.CustomImages.Parent = this.SendToDeviceButton;
+            //this.SendToDeviceButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            //this.SendToDeviceButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            //this.SendToDeviceButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            //this.SendToDeviceButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            //this.SendToDeviceButton.DisabledState.Parent = this.SendToDeviceButton;
+            //this.SendToDeviceButton.FillColor = System.Drawing.Color.Gray;
             this.SendToDeviceButton.Font = new System.Drawing.Font("Trebuchet MS", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SendToDeviceButton.ForeColor = System.Drawing.Color.White;
-            this.SendToDeviceButton.HoverState.Parent = this.SendToDeviceButton;
+            //this.SendToDeviceButton.HoverState.Parent = this.SendToDeviceButton;
             this.SendToDeviceButton.Location = new System.Drawing.Point(134, 3);
             this.SendToDeviceButton.MaximumSize = new System.Drawing.Size(0, 36);
             this.SendToDeviceButton.Name = "SendToDeviceButton";
-            this.SendToDeviceButton.ShadowDecoration.Parent = this.SendToDeviceButton;
+            //this.SendToDeviceButton.ShadowDecoration.Parent = this.SendToDeviceButton;
             this.SendToDeviceButton.Size = new System.Drawing.Size(243, 34);
             this.SendToDeviceButton.TabIndex = 12;
             this.SendToDeviceButton.Text = "Send To Device";
@@ -110,21 +110,21 @@
             this.DefaultCustomComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DefaultCustomComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.DefaultCustomComboBox.BorderRadius = 17;
+            //this.DefaultCustomComboBox.BorderRadius = 17;
             this.DefaultCustomComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.DefaultCustomComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.DefaultCustomComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(213)))), ((int)(((byte)(217)))));
-            this.DefaultCustomComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.DefaultCustomComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.DefaultCustomComboBox.FocusedState.Parent = this.DefaultCustomComboBox;
+            //this.DefaultCustomComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(213)))), ((int)(((byte)(217)))));
+            //this.DefaultCustomComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            //this.DefaultCustomComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            //this.DefaultCustomComboBox.FocusedState.Parent = this.DefaultCustomComboBox;
             this.DefaultCustomComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.DefaultCustomComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.DefaultCustomComboBox.HoverState.Parent = this.DefaultCustomComboBox;
+            //this.DefaultCustomComboBox.HoverState.Parent = this.DefaultCustomComboBox;
             this.DefaultCustomComboBox.ItemHeight = 30;
-            this.DefaultCustomComboBox.ItemsAppearance.Parent = this.DefaultCustomComboBox;
+            //this.DefaultCustomComboBox.ItemsAppearance.Parent = this.DefaultCustomComboBox;
             this.DefaultCustomComboBox.Location = new System.Drawing.Point(3, 3);
             this.DefaultCustomComboBox.Name = "DefaultCustomComboBox";
-            this.DefaultCustomComboBox.ShadowDecoration.Parent = this.DefaultCustomComboBox;
+            //this.DefaultCustomComboBox.ShadowDecoration.Parent = this.DefaultCustomComboBox;
             this.DefaultCustomComboBox.Size = new System.Drawing.Size(125, 36);
             this.DefaultCustomComboBox.TabIndex = 8;
             this.DefaultCustomComboBox.SelectedIndexChanged += new System.EventHandler(this.DefaultCustomComboBox_SelectedIndexChanged);
@@ -381,7 +381,7 @@
         }
 
         #endregion
-        private Siticone.Desktop.UI.WinForms.SiticoneRoundedButton SendToDeviceButton;
+        private System.Windows.Forms.Button SendToDeviceButton;
         private System.Windows.Forms.TableLayoutPanel tableLayout1;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox1;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox2;
@@ -391,7 +391,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private Siticone.Desktop.UI.WinForms.SiticoneRoundedComboBox DefaultCustomComboBox;
+        private System.Windows.Forms.ComboBox DefaultCustomComboBox;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlToolTip IPAddressToolTip;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlToolTip PortToolTip;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

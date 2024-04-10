@@ -16,9 +16,9 @@ namespace OpenTally
         // Light Mode Colors
         public Color BackColor = Color.White;
         public Color ForeColor = Color.Black;
-        public Color ButtonFillColor = Color.Gray;
-        public Color TextboxFillColor = Color.FromArgb(5, 213, 217);
-        public Color ComboboxFillColor = Color.FromArgb(5, 213, 217);
+        public Color ButtonBackColor = Color.Gray;
+        public Color TextboxBackColor = Color.FromArgb(5, 213, 217);
+        public Color ComboboxBackColor = Color.FromArgb(5, 213, 217);
         public static Color WiredModeColor = Color.DarkOrchid;
         public static Color WirelessModeColor = Color.FromArgb(5, 213, 217);
 
@@ -26,27 +26,27 @@ namespace OpenTally
 
         #region -  UI Functions  -
 
-        public delegate void UpdateButtonMethod(string text, SiticoneRoundedButton button, Color FillColor, Color ForeColor, string enabled);
-        public static void WSUpdateButton(string text, SiticoneRoundedButton button, Color FillColor, Color ForeColor, string enabled)
+        public delegate void UpdateButtonMethod(string text, Button button, Color BackColor, Color ForeColor, string enabled);
+        public static void WSUpdateButton(string text, Button button, Color BackColor, Color ForeColor, string enabled)
         {
             if (button.InvokeRequired)
             {
                 UpdateButtonMethod del = new UpdateButtonMethod(WSUpdateButton);
-                button.Invoke(del, new object[] { text, button, FillColor, ForeColor, enabled });
+                button.Invoke(del, new object[] { text, button, BackColor, ForeColor, enabled });
             }
             else
             {
                 button.Text = text;
-                if (enabled == "disabled") //Button is disabled
+                if (enabled == "disabled") // Button is disabled
                 {
                     button.Enabled = false;
-                    button.DisabledState.FillColor = FillColor;
-                    button.DisabledState.ForeColor = ForeColor;
+                    button.BackColor = BackColor; // Set the background color when disabled
+                    button.ForeColor = ForeColor; // Set the foreground color when disabled
                 }
                 else //Button must be enabled
                 {
                     button.Enabled = true;
-                    button.FillColor = FillColor;
+                    button.BackColor = BackColor;
                     button.ForeColor = ForeColor;
                 }
             }
@@ -122,7 +122,7 @@ namespace OpenTally
         }
 
         // Thanks https://stackoverflow.com/questions/4630391/get-all-controls-of-a-specific-type
-        // Call it with: UIElements.GetControlsOfType<SiticoneTextBox>(this).ToList().ForEach(element => element.FillColor = UIElements.WiredModeColor);
+        // Call it with: UIElements.GetControlsOfType<SiticoneTextBox>(this).ToList().ForEach(element => element.BackColor = UIElements.WiredModeColor);
         // OR in a foreach() loop:
         //  foreach (var element in UIElements.GetControlsOfType<Label>(this))
         //  {

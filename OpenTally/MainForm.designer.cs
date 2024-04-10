@@ -32,10 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tableLayout1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayout3 = new System.Windows.Forms.TableLayoutPanel();
-            this.ServerConnectButton = new Siticone.Desktop.UI.WinForms.SiticoneRoundedButton();
+            this.ServerConnectButton = new System.Windows.Forms.Button();
             this.PortText = new System.Windows.Forms.Label();
-            this.DeviceInfoButton = new Siticone.Desktop.UI.WinForms.SiticoneRoundedButton();
-            this.SetupButton = new Siticone.Desktop.UI.WinForms.SiticoneRoundedButton();
+            this.DeviceInfoButton = new System.Windows.Forms.Button();
+            this.SetupButton = new System.Windows.Forms.Button();
             this.tableLayout2 = new System.Windows.Forms.TableLayoutPanel();
             this.Source5 = new System.Windows.Forms.Label();
             this.Source6 = new System.Windows.Forms.Label();
@@ -51,7 +51,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.MessageText = new System.Windows.Forms.Label();
             this.InfoText = new System.Windows.Forms.Label();
-            this.PreviewsButton = new Siticone.Desktop.UI.WinForms.SiticoneRoundedButton();
+            this.PreviewsButton = new System.Windows.Forms.Button();
             this.TrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.DetectSerialTimer = new System.Windows.Forms.Timer(this.components);
             this.pollOBS = new System.Windows.Forms.Timer(this.components);
@@ -75,15 +75,15 @@
             this.tableLayout1.Controls.Add(this.tableLayout4, 0, 0);
             this.tableLayout1.Controls.Add(this.PreviewsButton, 0, 2);
             this.tableLayout1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayout1.Location = new System.Drawing.Point(5, 5);
+            this.tableLayout1.Location = new System.Drawing.Point(8, 8);
             this.tableLayout1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayout1.Name = "tableLayout1";
             this.tableLayout1.RowCount = 4;
-            this.tableLayout1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayout1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableLayout1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayout1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayout1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayout1.Size = new System.Drawing.Size(390, 240);
+            this.tableLayout1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayout1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayout1.Size = new System.Drawing.Size(585, 369);
             this.tableLayout1.TabIndex = 10;
             // 
             // tableLayout3
@@ -101,12 +101,12 @@
             this.tableLayout3.Controls.Add(this.PortText, 0, 0);
             this.tableLayout3.Controls.Add(this.DeviceInfoButton, 2, 0);
             this.tableLayout3.Controls.Add(this.SetupButton, 3, 0);
-            this.tableLayout3.Location = new System.Drawing.Point(0, 204);
+            this.tableLayout3.Location = new System.Drawing.Point(0, 314);
             this.tableLayout3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayout3.Name = "tableLayout3";
             this.tableLayout3.RowCount = 1;
             this.tableLayout3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayout3.Size = new System.Drawing.Size(390, 36);
+            this.tableLayout3.Size = new System.Drawing.Size(585, 55);
             this.tableLayout3.TabIndex = 11;
             // 
             // ServerConnectButton
@@ -115,25 +115,15 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ServerConnectButton.BackColor = System.Drawing.Color.Transparent;
-            this.ServerConnectButton.BorderRadius = 14;
-            this.ServerConnectButton.CheckedState.Parent = this.ServerConnectButton;
-            this.ServerConnectButton.CustomImages.Parent = this.ServerConnectButton;
-            this.ServerConnectButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ServerConnectButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ServerConnectButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ServerConnectButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ServerConnectButton.DisabledState.Parent = this.ServerConnectButton;
-            this.ServerConnectButton.FillColor = System.Drawing.Color.Gray;
             this.ServerConnectButton.Font = new System.Drawing.Font("Segoe UI", 7F);
             this.ServerConnectButton.ForeColor = System.Drawing.Color.White;
-            this.ServerConnectButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(213)))), ((int)(((byte)(217)))));
-            this.ServerConnectButton.HoverState.Parent = this.ServerConnectButton;
-            this.ServerConnectButton.Location = new System.Drawing.Point(100, 3);
+            this.ServerConnectButton.Location = new System.Drawing.Point(150, 5);
+            this.ServerConnectButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ServerConnectButton.Name = "ServerConnectButton";
-            this.ServerConnectButton.ShadowDecoration.Parent = this.ServerConnectButton;
-            this.ServerConnectButton.Size = new System.Drawing.Size(91, 30);
+            this.ServerConnectButton.Size = new System.Drawing.Size(138, 45);
             this.ServerConnectButton.TabIndex = 15;
             this.ServerConnectButton.Text = "Tally Server Connection";
+            this.ServerConnectButton.UseVisualStyleBackColor = false;
             this.ServerConnectButton.Click += new System.EventHandler(this.ServerConnectButton_Click);
             // 
             // PortText
@@ -144,12 +134,12 @@
             this.PortText.AutoSize = true;
             this.PortText.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PortText.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.PortText.Location = new System.Drawing.Point(3, 3);
-            this.PortText.Margin = new System.Windows.Forms.Padding(3);
-            this.PortText.MaximumSize = new System.Drawing.Size(0, 27);
-            this.PortText.MinimumSize = new System.Drawing.Size(0, 27);
+            this.PortText.Location = new System.Drawing.Point(4, 5);
+            this.PortText.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PortText.MaximumSize = new System.Drawing.Size(0, 42);
+            this.PortText.MinimumSize = new System.Drawing.Size(0, 42);
             this.PortText.Name = "PortText";
-            this.PortText.Size = new System.Drawing.Size(91, 27);
+            this.PortText.Size = new System.Drawing.Size(138, 42);
             this.PortText.TabIndex = 8;
             this.PortText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -159,25 +149,15 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DeviceInfoButton.BackColor = System.Drawing.Color.Transparent;
-            this.DeviceInfoButton.BorderRadius = 14;
-            this.DeviceInfoButton.CheckedState.Parent = this.DeviceInfoButton;
-            this.DeviceInfoButton.CustomImages.Parent = this.DeviceInfoButton;
-            this.DeviceInfoButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.DeviceInfoButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.DeviceInfoButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.DeviceInfoButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.DeviceInfoButton.DisabledState.Parent = this.DeviceInfoButton;
-            this.DeviceInfoButton.FillColor = System.Drawing.Color.Gray;
             this.DeviceInfoButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.DeviceInfoButton.ForeColor = System.Drawing.Color.White;
-            this.DeviceInfoButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(213)))), ((int)(((byte)(217)))));
-            this.DeviceInfoButton.HoverState.Parent = this.DeviceInfoButton;
-            this.DeviceInfoButton.Location = new System.Drawing.Point(197, 3);
+            this.DeviceInfoButton.Location = new System.Drawing.Point(296, 5);
+            this.DeviceInfoButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DeviceInfoButton.Name = "DeviceInfoButton";
-            this.DeviceInfoButton.ShadowDecoration.Parent = this.DeviceInfoButton;
-            this.DeviceInfoButton.Size = new System.Drawing.Size(91, 30);
+            this.DeviceInfoButton.Size = new System.Drawing.Size(138, 45);
             this.DeviceInfoButton.TabIndex = 14;
             this.DeviceInfoButton.Text = "Device Info";
+            this.DeviceInfoButton.UseVisualStyleBackColor = false;
             this.DeviceInfoButton.Click += new System.EventHandler(this.DeviceInfoButton_Click);
             // 
             // SetupButton
@@ -186,25 +166,15 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SetupButton.BackColor = System.Drawing.Color.Transparent;
-            this.SetupButton.BorderRadius = 14;
-            this.SetupButton.CheckedState.Parent = this.SetupButton;
-            this.SetupButton.CustomImages.Parent = this.SetupButton;
-            this.SetupButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.SetupButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.SetupButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.SetupButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.SetupButton.DisabledState.Parent = this.SetupButton;
-            this.SetupButton.FillColor = System.Drawing.Color.Gray;
             this.SetupButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.SetupButton.ForeColor = System.Drawing.Color.White;
-            this.SetupButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(213)))), ((int)(((byte)(217)))));
-            this.SetupButton.HoverState.Parent = this.SetupButton;
-            this.SetupButton.Location = new System.Drawing.Point(294, 3);
+            this.SetupButton.Location = new System.Drawing.Point(442, 5);
+            this.SetupButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SetupButton.Name = "SetupButton";
-            this.SetupButton.ShadowDecoration.Parent = this.SetupButton;
-            this.SetupButton.Size = new System.Drawing.Size(93, 30);
+            this.SetupButton.Size = new System.Drawing.Size(139, 45);
             this.SetupButton.TabIndex = 12;
             this.SetupButton.Text = "Setup";
+            this.SetupButton.UseVisualStyleBackColor = false;
             this.SetupButton.Click += new System.EventHandler(this.SetupButton_Click);
             // 
             // tableLayout2
@@ -226,14 +196,14 @@
             this.tableLayout2.Controls.Add(this.Source3, 2, 0);
             this.tableLayout2.Controls.Add(this.Source4, 3, 0);
             this.tableLayout2.Controls.Add(this.Source1, 0, 0);
-            this.tableLayout2.Location = new System.Drawing.Point(0, 36);
+            this.tableLayout2.Location = new System.Drawing.Point(0, 55);
             this.tableLayout2.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayout2.MinimumSize = new System.Drawing.Size(300, 53);
+            this.tableLayout2.MinimumSize = new System.Drawing.Size(450, 82);
             this.tableLayout2.Name = "tableLayout2";
             this.tableLayout2.RowCount = 2;
             this.tableLayout2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayout2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayout2.Size = new System.Drawing.Size(390, 132);
+            this.tableLayout2.Size = new System.Drawing.Size(585, 204);
             this.tableLayout2.TabIndex = 10;
             // 
             // Source5
@@ -245,11 +215,11 @@
             this.Source5.BackColor = System.Drawing.Color.Gray;
             this.Source5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.Source5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Source5.Location = new System.Drawing.Point(3, 70);
-            this.Source5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Source5.MinimumSize = new System.Drawing.Size(62, 44);
+            this.Source5.Location = new System.Drawing.Point(4, 108);
+            this.Source5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Source5.MinimumSize = new System.Drawing.Size(93, 68);
             this.Source5.Name = "Source5";
-            this.Source5.Size = new System.Drawing.Size(91, 58);
+            this.Source5.Size = new System.Drawing.Size(138, 90);
             this.Source5.TabIndex = 7;
             this.Source5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -262,11 +232,11 @@
             this.Source6.BackColor = System.Drawing.Color.Gray;
             this.Source6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.Source6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Source6.Location = new System.Drawing.Point(100, 70);
-            this.Source6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Source6.MinimumSize = new System.Drawing.Size(62, 44);
+            this.Source6.Location = new System.Drawing.Point(150, 108);
+            this.Source6.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Source6.MinimumSize = new System.Drawing.Size(93, 68);
             this.Source6.Name = "Source6";
-            this.Source6.Size = new System.Drawing.Size(91, 58);
+            this.Source6.Size = new System.Drawing.Size(138, 90);
             this.Source6.TabIndex = 6;
             this.Source6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -279,11 +249,11 @@
             this.Source7.BackColor = System.Drawing.Color.Gray;
             this.Source7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.Source7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Source7.Location = new System.Drawing.Point(197, 70);
-            this.Source7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Source7.MinimumSize = new System.Drawing.Size(62, 44);
+            this.Source7.Location = new System.Drawing.Point(296, 108);
+            this.Source7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Source7.MinimumSize = new System.Drawing.Size(93, 68);
             this.Source7.Name = "Source7";
-            this.Source7.Size = new System.Drawing.Size(91, 58);
+            this.Source7.Size = new System.Drawing.Size(138, 90);
             this.Source7.TabIndex = 5;
             this.Source7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -296,11 +266,11 @@
             this.Source8.BackColor = System.Drawing.Color.Gray;
             this.Source8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.Source8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Source8.Location = new System.Drawing.Point(294, 70);
-            this.Source8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Source8.MinimumSize = new System.Drawing.Size(62, 44);
+            this.Source8.Location = new System.Drawing.Point(442, 108);
+            this.Source8.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Source8.MinimumSize = new System.Drawing.Size(93, 68);
             this.Source8.Name = "Source8";
-            this.Source8.Size = new System.Drawing.Size(93, 58);
+            this.Source8.Size = new System.Drawing.Size(139, 90);
             this.Source8.TabIndex = 4;
             this.Source8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -313,11 +283,11 @@
             this.Source2.BackColor = System.Drawing.Color.Gray;
             this.Source2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.Source2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Source2.Location = new System.Drawing.Point(100, 4);
-            this.Source2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Source2.MinimumSize = new System.Drawing.Size(62, 44);
+            this.Source2.Location = new System.Drawing.Point(150, 6);
+            this.Source2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Source2.MinimumSize = new System.Drawing.Size(93, 68);
             this.Source2.Name = "Source2";
-            this.Source2.Size = new System.Drawing.Size(91, 58);
+            this.Source2.Size = new System.Drawing.Size(138, 90);
             this.Source2.TabIndex = 1;
             this.Source2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -330,11 +300,11 @@
             this.Source3.BackColor = System.Drawing.Color.Gray;
             this.Source3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.Source3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Source3.Location = new System.Drawing.Point(197, 4);
-            this.Source3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Source3.MinimumSize = new System.Drawing.Size(62, 44);
+            this.Source3.Location = new System.Drawing.Point(296, 6);
+            this.Source3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Source3.MinimumSize = new System.Drawing.Size(93, 68);
             this.Source3.Name = "Source3";
-            this.Source3.Size = new System.Drawing.Size(91, 58);
+            this.Source3.Size = new System.Drawing.Size(138, 90);
             this.Source3.TabIndex = 2;
             this.Source3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -347,11 +317,11 @@
             this.Source4.BackColor = System.Drawing.Color.Gray;
             this.Source4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.Source4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Source4.Location = new System.Drawing.Point(294, 4);
-            this.Source4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Source4.MinimumSize = new System.Drawing.Size(62, 44);
+            this.Source4.Location = new System.Drawing.Point(442, 6);
+            this.Source4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Source4.MinimumSize = new System.Drawing.Size(93, 68);
             this.Source4.Name = "Source4";
-            this.Source4.Size = new System.Drawing.Size(93, 58);
+            this.Source4.Size = new System.Drawing.Size(139, 90);
             this.Source4.TabIndex = 3;
             this.Source4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -364,11 +334,11 @@
             this.Source1.BackColor = System.Drawing.Color.Gray;
             this.Source1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.Source1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Source1.Location = new System.Drawing.Point(3, 4);
-            this.Source1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Source1.MinimumSize = new System.Drawing.Size(62, 44);
+            this.Source1.Location = new System.Drawing.Point(4, 6);
+            this.Source1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Source1.MinimumSize = new System.Drawing.Size(93, 68);
             this.Source1.Name = "Source1";
-            this.Source1.Size = new System.Drawing.Size(91, 58);
+            this.Source1.Size = new System.Drawing.Size(138, 90);
             this.Source1.TabIndex = 0;
             this.Source1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -379,8 +349,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayout4.ColumnCount = 3;
             this.tableLayout4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayout4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayout4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayout4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.tableLayout4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayout4.Controls.Add(this.CloseButton, 2, 0);
             this.tableLayout4.Controls.Add(this.MinimizeButton, 1, 0);
             this.tableLayout4.Controls.Add(this.tableLayoutPanel1, 0, 0);
@@ -389,7 +359,7 @@
             this.tableLayout4.Name = "tableLayout4";
             this.tableLayout4.RowCount = 1;
             this.tableLayout4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayout4.Size = new System.Drawing.Size(390, 36);
+            this.tableLayout4.Size = new System.Drawing.Size(585, 55);
             this.tableLayout4.TabIndex = 12;
             // 
             // CloseButton
@@ -399,12 +369,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CloseButton.FillColor = System.Drawing.Color.Gray;
             this.CloseButton.HoverState.IconColor = System.Drawing.Color.Red;
-            this.CloseButton.HoverState.Parent = this.CloseButton;
             this.CloseButton.IconColor = System.Drawing.Color.White;
-            this.CloseButton.Location = new System.Drawing.Point(357, 3);
+            this.CloseButton.Location = new System.Drawing.Point(535, 5);
+            this.CloseButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CloseButton.Name = "CloseButton";
-            this.CloseButton.ShadowDecoration.Parent = this.CloseButton;
-            this.CloseButton.Size = new System.Drawing.Size(30, 30);
+            this.CloseButton.Size = new System.Drawing.Size(46, 45);
             this.CloseButton.TabIndex = 0;
             // 
             // MinimizeButton
@@ -415,12 +384,11 @@
             this.MinimizeButton.ControlBoxType = Siticone.Desktop.UI.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.MinimizeButton.FillColor = System.Drawing.Color.Gray;
             this.MinimizeButton.HoverState.IconColor = System.Drawing.Color.Red;
-            this.MinimizeButton.HoverState.Parent = this.MinimizeButton;
             this.MinimizeButton.IconColor = System.Drawing.Color.White;
-            this.MinimizeButton.Location = new System.Drawing.Point(321, 3);
+            this.MinimizeButton.Location = new System.Drawing.Point(481, 5);
+            this.MinimizeButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinimizeButton.Name = "MinimizeButton";
-            this.MinimizeButton.ShadowDecoration.Parent = this.MinimizeButton;
-            this.MinimizeButton.Size = new System.Drawing.Size(30, 30);
+            this.MinimizeButton.Size = new System.Drawing.Size(46, 45);
             this.MinimizeButton.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -430,7 +398,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.Controls.Add(this.MessageText, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.InfoText, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -439,7 +407,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(318, 36);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(477, 55);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // MessageText
@@ -449,12 +417,12 @@
             this.MessageText.AutoSize = true;
             this.MessageText.BackColor = System.Drawing.Color.Transparent;
             this.MessageText.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.MessageText.Location = new System.Drawing.Point(4, 21);
-            this.MessageText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.MessageText.MaximumSize = new System.Drawing.Size(0, 15);
-            this.MessageText.MinimumSize = new System.Drawing.Size(0, 15);
+            this.MessageText.Location = new System.Drawing.Point(6, 32);
+            this.MessageText.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.MessageText.MaximumSize = new System.Drawing.Size(0, 23);
+            this.MessageText.MinimumSize = new System.Drawing.Size(0, 23);
             this.MessageText.Name = "MessageText";
-            this.MessageText.Size = new System.Drawing.Size(310, 15);
+            this.MessageText.Size = new System.Drawing.Size(465, 23);
             this.MessageText.TabIndex = 0;
             // 
             // InfoText
@@ -465,10 +433,10 @@
             this.InfoText.AutoSize = true;
             this.InfoText.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoText.ForeColor = System.Drawing.Color.Gray;
-            this.InfoText.Location = new System.Drawing.Point(4, 0);
-            this.InfoText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.InfoText.Location = new System.Drawing.Point(6, 0);
+            this.InfoText.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.InfoText.Name = "InfoText";
-            this.InfoText.Size = new System.Drawing.Size(310, 18);
+            this.InfoText.Size = new System.Drawing.Size(465, 27);
             this.InfoText.TabIndex = 1;
             // 
             // PreviewsButton
@@ -477,25 +445,15 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PreviewsButton.BackColor = System.Drawing.Color.Transparent;
-            this.PreviewsButton.BorderRadius = 14;
-            this.PreviewsButton.CheckedState.Parent = this.PreviewsButton;
-            this.PreviewsButton.CustomImages.Parent = this.PreviewsButton;
-            this.PreviewsButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.PreviewsButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.PreviewsButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.PreviewsButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.PreviewsButton.DisabledState.Parent = this.PreviewsButton;
-            this.PreviewsButton.FillColor = System.Drawing.Color.Gray;
             this.PreviewsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.PreviewsButton.ForeColor = System.Drawing.Color.White;
-            this.PreviewsButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(213)))), ((int)(((byte)(217)))));
-            this.PreviewsButton.HoverState.Parent = this.PreviewsButton;
-            this.PreviewsButton.Location = new System.Drawing.Point(3, 171);
+            this.PreviewsButton.Location = new System.Drawing.Point(4, 264);
+            this.PreviewsButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PreviewsButton.Name = "PreviewsButton";
-            this.PreviewsButton.ShadowDecoration.Parent = this.PreviewsButton;
-            this.PreviewsButton.Size = new System.Drawing.Size(384, 30);
+            this.PreviewsButton.Size = new System.Drawing.Size(577, 45);
             this.PreviewsButton.TabIndex = 13;
             this.PreviewsButton.Text = "Previews ON";
+            this.PreviewsButton.UseVisualStyleBackColor = false;
             this.PreviewsButton.Click += new System.EventHandler(this.PreviewsButton_Click);
             // 
             // TrayIcon
@@ -523,14 +481,15 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(400, 250);
+            this.ClientSize = new System.Drawing.Size(600, 385);
             this.Controls.Add(this.tableLayout1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(400, 250);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MinimumSize = new System.Drawing.Size(600, 385);
             this.Name = "MainForm";
             this.Text = "Tally Pro 0.1";
             this.Load += new System.EventHandler(this.MainProgram_Load);
@@ -558,10 +517,10 @@
         private Siticone.Desktop.UI.WinForms.SiticoneControlBox CloseButton;
         private Siticone.Desktop.UI.WinForms.SiticoneControlBox MinimizeButton;
         private System.Windows.Forms.Label MessageText;
-        private Siticone.Desktop.UI.WinForms.SiticoneRoundedButton SetupButton;
+        private System.Windows.Forms.Button SetupButton;
         private System.Windows.Forms.NotifyIcon TrayIcon;
-        private Siticone.Desktop.UI.WinForms.SiticoneRoundedButton DeviceInfoButton;
-        private Siticone.Desktop.UI.WinForms.SiticoneRoundedButton PreviewsButton;
+        private System.Windows.Forms.Button DeviceInfoButton;
+        private System.Windows.Forms.Button PreviewsButton;
         private System.Windows.Forms.Label Source5;
         private System.Windows.Forms.Label Source6;
         private System.Windows.Forms.Label Source7;
@@ -571,7 +530,7 @@
         private System.Windows.Forms.Label Source1;
         private System.Windows.Forms.Label Source8;
         private System.Windows.Forms.Timer DetectSerialTimer;
-        private Siticone.Desktop.UI.WinForms.SiticoneRoundedButton ServerConnectButton;
+        private System.Windows.Forms.Button ServerConnectButton;
         private System.Windows.Forms.Timer pollOBS;
         private System.Windows.Forms.Timer pollTA;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

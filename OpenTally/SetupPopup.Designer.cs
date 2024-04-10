@@ -44,7 +44,7 @@
             this.PortComboBox = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.IPAddressTextBox = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.IPAddressComboBox = new Siticone.Desktop.UI.WinForms.SiticoneRoundedComboBox();
+            this.IPAddressComboBox = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.PasswordTextBox = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.pwShow = new Siticone.Desktop.UI.WinForms.SiticoneImageCheckBox();
@@ -71,8 +71,8 @@
             this.DeviceProgramButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.MessageText = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.TestConnectButton = new Siticone.Desktop.UI.WinForms.SiticoneRoundedButton();
-            this.SaveButton = new Siticone.Desktop.UI.WinForms.SiticoneRoundedButton();
+            this.TestConnectButton = new System.Windows.Forms.Button();
+            this.SaveButton = new System.Windows.Forms.Button();
             this.IPAddressToolTip = new Siticone.Desktop.UI.WinForms.SiticoneHtmlToolTip();
             this.PortToolTip = new Siticone.Desktop.UI.WinForms.SiticoneHtmlToolTip();
             this.SerialConnectedTimer = new System.Windows.Forms.Timer(this.components);
@@ -100,17 +100,17 @@
             this.LayoutPanelAll.Controls.Add(this.ProgramDeviceLayout, 0, 4);
             this.LayoutPanelAll.Controls.Add(this.MessageText, 0, 5);
             this.LayoutPanelAll.Controls.Add(this.tableLayoutPanel5, 0, 3);
-            this.LayoutPanelAll.Location = new System.Drawing.Point(5, 5);
+            this.LayoutPanelAll.Location = new System.Drawing.Point(8, 8);
             this.LayoutPanelAll.Margin = new System.Windows.Forms.Padding(0);
             this.LayoutPanelAll.Name = "LayoutPanelAll";
             this.LayoutPanelAll.RowCount = 6;
-            this.LayoutPanelAll.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.LayoutPanelAll.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.LayoutPanelAll.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.37775F));
             this.LayoutPanelAll.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.09217F));
             this.LayoutPanelAll.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.52074F));
             this.LayoutPanelAll.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.80556F));
             this.LayoutPanelAll.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.861111F));
-            this.LayoutPanelAll.Size = new System.Drawing.Size(410, 470);
+            this.LayoutPanelAll.Size = new System.Drawing.Size(615, 723);
             this.LayoutPanelAll.TabIndex = 0;
             // 
             // Menu
@@ -119,20 +119,20 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Menu.ColumnCount = 3;
-            this.Menu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 67F));
+            this.Menu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.Menu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.Menu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.Menu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.Menu.Controls.Add(this.WiredWirelessToggle, 0, 0);
             this.Menu.Controls.Add(this.CloseButton, 2, 0);
             this.Menu.Controls.Add(this.WiredWirelessLabel, 1, 0);
             this.Menu.ForeColor = System.Drawing.Color.White;
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Margin = new System.Windows.Forms.Padding(0);
-            this.Menu.MaximumSize = new System.Drawing.Size(0, 50);
+            this.Menu.MaximumSize = new System.Drawing.Size(0, 77);
             this.Menu.Name = "Menu";
             this.Menu.RowCount = 1;
             this.Menu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.Menu.Size = new System.Drawing.Size(410, 36);
+            this.Menu.Size = new System.Drawing.Size(615, 55);
             this.Menu.TabIndex = 18;
             // 
             // WiredWirelessToggle
@@ -144,25 +144,23 @@
             this.WiredWirelessToggle.AutoRoundedCorners = true;
             this.WiredWirelessToggle.BackColor = System.Drawing.Color.Transparent;
             this.WiredWirelessToggle.CheckedState.BorderColor = System.Drawing.Color.DarkOrchid;
-            this.WiredWirelessToggle.CheckedState.BorderRadius = 14;
+            this.WiredWirelessToggle.CheckedState.BorderRadius = 21;
             this.WiredWirelessToggle.CheckedState.FillColor = System.Drawing.Color.DarkOrchid;
             this.WiredWirelessToggle.CheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.WiredWirelessToggle.CheckedState.InnerBorderRadius = 10;
+            this.WiredWirelessToggle.CheckedState.InnerBorderRadius = 17;
             this.WiredWirelessToggle.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.WiredWirelessToggle.CheckedState.Parent = this.WiredWirelessToggle;
             this.WiredWirelessToggle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.WiredWirelessToggle.Location = new System.Drawing.Point(3, 3);
+            this.WiredWirelessToggle.Location = new System.Drawing.Point(4, 5);
+            this.WiredWirelessToggle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.WiredWirelessToggle.Name = "WiredWirelessToggle";
-            this.WiredWirelessToggle.ShadowDecoration.Parent = this.WiredWirelessToggle;
-            this.WiredWirelessToggle.Size = new System.Drawing.Size(61, 30);
+            this.WiredWirelessToggle.Size = new System.Drawing.Size(92, 45);
             this.WiredWirelessToggle.TabIndex = 14;
             this.WiredWirelessToggle.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(213)))), ((int)(((byte)(217)))));
-            this.WiredWirelessToggle.UncheckedState.BorderRadius = 14;
+            this.WiredWirelessToggle.UncheckedState.BorderRadius = 21;
             this.WiredWirelessToggle.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(213)))), ((int)(((byte)(217)))));
             this.WiredWirelessToggle.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.WiredWirelessToggle.UncheckedState.InnerBorderRadius = 10;
+            this.WiredWirelessToggle.UncheckedState.InnerBorderRadius = 17;
             this.WiredWirelessToggle.UncheckedState.InnerColor = System.Drawing.Color.White;
-            this.WiredWirelessToggle.UncheckedState.Parent = this.WiredWirelessToggle;
             this.WiredWirelessToggle.Click += new System.EventHandler(this.WiredWirelessToggle_CheckedChanged);
             // 
             // CloseButton
@@ -174,12 +172,11 @@
             this.CloseButton.CustomIconSize = 12F;
             this.CloseButton.FillColor = System.Drawing.Color.Gray;
             this.CloseButton.HoverState.IconColor = System.Drawing.Color.Red;
-            this.CloseButton.HoverState.Parent = this.CloseButton;
             this.CloseButton.IconColor = System.Drawing.Color.White;
-            this.CloseButton.Location = new System.Drawing.Point(377, 3);
+            this.CloseButton.Location = new System.Drawing.Point(565, 5);
+            this.CloseButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CloseButton.Name = "CloseButton";
-            this.CloseButton.ShadowDecoration.Parent = this.CloseButton;
-            this.CloseButton.Size = new System.Drawing.Size(30, 30);
+            this.CloseButton.Size = new System.Drawing.Size(46, 45);
             this.CloseButton.TabIndex = 17;
             // 
             // WiredWirelessLabel
@@ -190,9 +187,10 @@
             this.WiredWirelessLabel.AutoSize = true;
             this.WiredWirelessLabel.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WiredWirelessLabel.ForeColor = System.Drawing.Color.Black;
-            this.WiredWirelessLabel.Location = new System.Drawing.Point(70, 0);
+            this.WiredWirelessLabel.Location = new System.Drawing.Point(104, 0);
+            this.WiredWirelessLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.WiredWirelessLabel.Name = "WiredWirelessLabel";
-            this.WiredWirelessLabel.Size = new System.Drawing.Size(301, 36);
+            this.WiredWirelessLabel.Size = new System.Drawing.Size(453, 55);
             this.WiredWirelessLabel.TabIndex = 18;
             this.WiredWirelessLabel.Text = "TALLY SERVER RELAY";
             this.WiredWirelessLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -212,15 +210,15 @@
             this.LayoutPanelUserConfig.Controls.Add(this.tableLayoutPanel3, 1, 0);
             this.LayoutPanelUserConfig.Controls.Add(this.tableLayoutPanel1, 1, 2);
             this.LayoutPanelUserConfig.ForeColor = System.Drawing.Color.White;
-            this.LayoutPanelUserConfig.Location = new System.Drawing.Point(0, 36);
+            this.LayoutPanelUserConfig.Location = new System.Drawing.Point(0, 55);
             this.LayoutPanelUserConfig.Margin = new System.Windows.Forms.Padding(0);
-            this.LayoutPanelUserConfig.MinimumSize = new System.Drawing.Size(0, 108);
+            this.LayoutPanelUserConfig.MinimumSize = new System.Drawing.Size(0, 166);
             this.LayoutPanelUserConfig.Name = "LayoutPanelUserConfig";
             this.LayoutPanelUserConfig.RowCount = 3;
             this.LayoutPanelUserConfig.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.LayoutPanelUserConfig.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.LayoutPanelUserConfig.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.LayoutPanelUserConfig.Size = new System.Drawing.Size(410, 136);
+            this.LayoutPanelUserConfig.Size = new System.Drawing.Size(615, 210);
             this.LayoutPanelUserConfig.TabIndex = 29;
             // 
             // IPAddressLabel
@@ -229,9 +227,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.IPAddressLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IPAddressLabel.ForeColor = System.Drawing.Color.Black;
-            this.IPAddressLabel.Location = new System.Drawing.Point(3, 0);
+            this.IPAddressLabel.Location = new System.Drawing.Point(4, 0);
+            this.IPAddressLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.IPAddressLabel.Name = "IPAddressLabel";
-            this.IPAddressLabel.Size = new System.Drawing.Size(117, 42);
+            this.IPAddressLabel.Size = new System.Drawing.Size(176, 65);
             this.IPAddressLabel.TabIndex = 11;
             this.IPAddressLabel.Text = "Tally Server IP address:";
             this.IPAddressLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -242,9 +241,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PortLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PortLabel.ForeColor = System.Drawing.Color.Black;
-            this.PortLabel.Location = new System.Drawing.Point(3, 45);
+            this.PortLabel.Location = new System.Drawing.Point(4, 70);
+            this.PortLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PortLabel.Name = "PortLabel";
-            this.PortLabel.Size = new System.Drawing.Size(117, 42);
+            this.PortLabel.Size = new System.Drawing.Size(176, 65);
             this.PortLabel.TabIndex = 12;
             this.PortLabel.Text = "Tally Server port:";
             this.PortLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -255,9 +255,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PasswordLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasswordLabel.ForeColor = System.Drawing.Color.Black;
-            this.PasswordLabel.Location = new System.Drawing.Point(3, 90);
+            this.PasswordLabel.Location = new System.Drawing.Point(4, 140);
+            this.PasswordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(117, 45);
+            this.PasswordLabel.Size = new System.Drawing.Size(176, 69);
             this.PasswordLabel.TabIndex = 9;
             this.PasswordLabel.Text = "OBS Websocket Password:";
             this.PasswordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -274,13 +275,13 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48F));
             this.tableLayoutPanel4.Controls.Add(this.PortTextBox, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.PortComboBox, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(123, 45);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(184, 70);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel4.MinimumSize = new System.Drawing.Size(0, 42);
+            this.tableLayoutPanel4.MinimumSize = new System.Drawing.Size(0, 65);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(287, 45);
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 88F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(431, 70);
             this.tableLayoutPanel4.TabIndex = 14;
             // 
             // PortTextBox
@@ -294,22 +295,19 @@
             this.PortTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.PortTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.PortTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.PortTextBox.DisabledState.Parent = this.PortTextBox;
             this.PortTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.PortTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(213)))), ((int)(((byte)(217)))));
             this.PortTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PortTextBox.FocusedState.Parent = this.PortTextBox;
             this.PortTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.PortTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PortTextBox.HoverState.Parent = this.PortTextBox;
-            this.PortTextBox.Location = new System.Drawing.Point(152, 3);
-            this.PortTextBox.MinimumSize = new System.Drawing.Size(0, 36);
+            this.PortTextBox.Location = new System.Drawing.Point(228, 5);
+            this.PortTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PortTextBox.MinimumSize = new System.Drawing.Size(0, 55);
             this.PortTextBox.Name = "PortTextBox";
             this.PortTextBox.PasswordChar = '\0';
             this.PortTextBox.PlaceholderText = "";
             this.PortTextBox.SelectedText = "";
-            this.PortTextBox.ShadowDecoration.Parent = this.PortTextBox;
-            this.PortTextBox.Size = new System.Drawing.Size(132, 36);
+            this.PortTextBox.Size = new System.Drawing.Size(199, 55);
             this.PortTextBox.TabIndex = 1;
             this.PortTextBox.Leave += new System.EventHandler(this.PortTextBox_Leave);
             this.PortTextBox.MouseEnter += new System.EventHandler(this.PortTextBox_Leave);
@@ -327,16 +325,13 @@
             this.PortComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(213)))), ((int)(((byte)(217)))));
             this.PortComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.PortComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PortComboBox.FocusedState.Parent = this.PortComboBox;
             this.PortComboBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PortComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.PortComboBox.HoverState.Parent = this.PortComboBox;
             this.PortComboBox.ItemHeight = 30;
-            this.PortComboBox.ItemsAppearance.Parent = this.PortComboBox;
-            this.PortComboBox.Location = new System.Drawing.Point(3, 3);
+            this.PortComboBox.Location = new System.Drawing.Point(4, 5);
+            this.PortComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PortComboBox.Name = "PortComboBox";
-            this.PortComboBox.ShadowDecoration.Parent = this.PortComboBox;
-            this.PortComboBox.Size = new System.Drawing.Size(143, 36);
+            this.PortComboBox.Size = new System.Drawing.Size(216, 36);
             this.PortComboBox.TabIndex = 0;
             this.PortComboBox.SelectedIndexChanged += new System.EventHandler(this.PortComboBox_SelectedIndexChanged);
             // 
@@ -351,13 +346,13 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48F));
             this.tableLayoutPanel3.Controls.Add(this.IPAddressTextBox, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.IPAddressComboBox, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(123, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(184, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel3.MinimumSize = new System.Drawing.Size(0, 42);
+            this.tableLayoutPanel3.MinimumSize = new System.Drawing.Size(0, 65);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(287, 45);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 88F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(431, 70);
             this.tableLayoutPanel3.TabIndex = 13;
             // 
             // IPAddressTextBox
@@ -371,22 +366,19 @@
             this.IPAddressTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.IPAddressTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.IPAddressTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.IPAddressTextBox.DisabledState.Parent = this.IPAddressTextBox;
             this.IPAddressTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.IPAddressTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(213)))), ((int)(((byte)(217)))));
             this.IPAddressTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.IPAddressTextBox.FocusedState.Parent = this.IPAddressTextBox;
             this.IPAddressTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.IPAddressTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.IPAddressTextBox.HoverState.Parent = this.IPAddressTextBox;
-            this.IPAddressTextBox.Location = new System.Drawing.Point(152, 3);
-            this.IPAddressTextBox.MinimumSize = new System.Drawing.Size(0, 36);
+            this.IPAddressTextBox.Location = new System.Drawing.Point(228, 5);
+            this.IPAddressTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.IPAddressTextBox.MinimumSize = new System.Drawing.Size(0, 55);
             this.IPAddressTextBox.Name = "IPAddressTextBox";
             this.IPAddressTextBox.PasswordChar = '\0';
             this.IPAddressTextBox.PlaceholderText = "";
             this.IPAddressTextBox.SelectedText = "";
-            this.IPAddressTextBox.ShadowDecoration.Parent = this.IPAddressTextBox;
-            this.IPAddressTextBox.Size = new System.Drawing.Size(132, 36);
+            this.IPAddressTextBox.Size = new System.Drawing.Size(199, 55);
             this.IPAddressTextBox.TabIndex = 19;
             this.IPAddressTextBox.Leave += new System.EventHandler(this.IPAddressTextBox_Leave);
             this.IPAddressTextBox.MouseEnter += new System.EventHandler(this.IPAddressTextBox_Leave);
@@ -396,23 +388,16 @@
             this.IPAddressComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.IPAddressComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.IPAddressComboBox.BorderRadius = 17;
+            this.IPAddressComboBox.BackColor = System.Drawing.Color.White;
             this.IPAddressComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.IPAddressComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.IPAddressComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(213)))), ((int)(((byte)(217)))));
-            this.IPAddressComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.IPAddressComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.IPAddressComboBox.FocusedState.Parent = this.IPAddressComboBox;
             this.IPAddressComboBox.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.IPAddressComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.IPAddressComboBox.HoverState.Parent = this.IPAddressComboBox;
             this.IPAddressComboBox.ItemHeight = 30;
-            this.IPAddressComboBox.ItemsAppearance.Parent = this.IPAddressComboBox;
-            this.IPAddressComboBox.Location = new System.Drawing.Point(3, 3);
+            this.IPAddressComboBox.Location = new System.Drawing.Point(4, 5);
+            this.IPAddressComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.IPAddressComboBox.Name = "IPAddressComboBox";
-            this.IPAddressComboBox.ShadowDecoration.Parent = this.IPAddressComboBox;
-            this.IPAddressComboBox.Size = new System.Drawing.Size(143, 36);
+            this.IPAddressComboBox.Size = new System.Drawing.Size(216, 36);
             this.IPAddressComboBox.TabIndex = 19;
             this.IPAddressComboBox.SelectedIndexChanged += new System.EventHandler(this.IPAddressComboBox_SelectedIndexChanged);
             // 
@@ -423,15 +408,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel1.Controls.Add(this.PasswordTextBox, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.pwShow, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(123, 90);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(184, 140);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(287, 46);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(431, 70);
             this.tableLayoutPanel1.TabIndex = 15;
             // 
             // PasswordTextBox
@@ -445,23 +430,20 @@
             this.PasswordTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.PasswordTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.PasswordTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.PasswordTextBox.DisabledState.Parent = this.PasswordTextBox;
             this.PasswordTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.PasswordTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(213)))), ((int)(((byte)(217)))));
             this.PasswordTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PasswordTextBox.FocusedState.Parent = this.PasswordTextBox;
             this.PasswordTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.PasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PasswordTextBox.HoverState.Parent = this.PasswordTextBox;
-            this.PasswordTextBox.Location = new System.Drawing.Point(3, 3);
-            this.PasswordTextBox.MaximumSize = new System.Drawing.Size(0, 42);
-            this.PasswordTextBox.MinimumSize = new System.Drawing.Size(0, 36);
+            this.PasswordTextBox.Location = new System.Drawing.Point(4, 5);
+            this.PasswordTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PasswordTextBox.MaximumSize = new System.Drawing.Size(0, 65);
+            this.PasswordTextBox.MinimumSize = new System.Drawing.Size(0, 55);
             this.PasswordTextBox.Name = "PasswordTextBox";
-            this.PasswordTextBox.PasswordChar = '\0';
+            this.PasswordTextBox.PasswordChar = '●';
             this.PasswordTextBox.PlaceholderText = "";
             this.PasswordTextBox.SelectedText = "";
-            this.PasswordTextBox.ShadowDecoration.Parent = this.PasswordTextBox;
-            this.PasswordTextBox.Size = new System.Drawing.Size(245, 36);
+            this.PasswordTextBox.Size = new System.Drawing.Size(369, 55);
             this.PasswordTextBox.TabIndex = 15;
             this.PasswordTextBox.UseSystemPasswordChar = true;
             this.PasswordTextBox.Leave += new System.EventHandler(this.PasswordTextBox_Leave);
@@ -472,18 +454,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pwShow.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
             this.pwShow.CheckedState.ImageSize = new System.Drawing.Size(30, 30);
-            this.pwShow.CheckedState.Parent = this.pwShow;
             this.pwShow.HoverState.ImageSize = new System.Drawing.Size(30, 30);
-            this.pwShow.HoverState.Parent = this.pwShow;
             this.pwShow.Image = ((System.Drawing.Image)(resources.GetObject("pwShow.Image")));
             this.pwShow.ImageOffset = new System.Drawing.Point(0, 0);
             this.pwShow.ImageRotate = 0F;
             this.pwShow.ImageSize = new System.Drawing.Size(30, 30);
-            this.pwShow.Location = new System.Drawing.Point(254, 3);
+            this.pwShow.Location = new System.Drawing.Point(381, 5);
+            this.pwShow.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pwShow.Name = "pwShow";
-            this.pwShow.PressedState.Parent = this.pwShow;
-            this.pwShow.ShadowDecoration.Parent = this.pwShow;
-            this.pwShow.Size = new System.Drawing.Size(30, 40);
+            this.pwShow.Size = new System.Drawing.Size(46, 60);
             this.pwShow.TabIndex = 16;
             this.pwShow.CheckedChanged += new System.EventHandler(this.pwShow_CheckedChanged);
             // 
@@ -493,9 +472,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LayoutPanelSourceUI.ColumnCount = 4;
-            this.LayoutPanelSourceUI.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.LayoutPanelSourceUI.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 112F));
             this.LayoutPanelSourceUI.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.LayoutPanelSourceUI.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.LayoutPanelSourceUI.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 112F));
             this.LayoutPanelSourceUI.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.LayoutPanelSourceUI.Controls.Add(this.label9, 2, 3);
             this.LayoutPanelSourceUI.Controls.Add(this.label8, 2, 2);
@@ -514,7 +493,7 @@
             this.LayoutPanelSourceUI.Controls.Add(this.siticoneComboBox7, 3, 2);
             this.LayoutPanelSourceUI.Controls.Add(this.siticoneComboBox8, 3, 3);
             this.LayoutPanelSourceUI.ForeColor = System.Drawing.Color.White;
-            this.LayoutPanelSourceUI.Location = new System.Drawing.Point(0, 172);
+            this.LayoutPanelSourceUI.Location = new System.Drawing.Point(0, 265);
             this.LayoutPanelSourceUI.Margin = new System.Windows.Forms.Padding(0);
             this.LayoutPanelSourceUI.Name = "LayoutPanelSourceUI";
             this.LayoutPanelSourceUI.RowCount = 4;
@@ -522,8 +501,8 @@
             this.LayoutPanelSourceUI.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.LayoutPanelSourceUI.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.LayoutPanelSourceUI.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.LayoutPanelSourceUI.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.LayoutPanelSourceUI.Size = new System.Drawing.Size(410, 174);
+            this.LayoutPanelSourceUI.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.LayoutPanelSourceUI.Size = new System.Drawing.Size(615, 268);
             this.LayoutPanelSourceUI.TabIndex = 28;
             // 
             // label9
@@ -533,10 +512,11 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(208, 129);
+            this.label9.Location = new System.Drawing.Point(311, 201);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.label9.Size = new System.Drawing.Size(69, 38);
+            this.label9.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.label9.Size = new System.Drawing.Size(104, 48);
             this.label9.TabIndex = 34;
             this.label9.Text = "Source 8:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -548,10 +528,11 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(208, 86);
+            this.label8.Location = new System.Drawing.Point(311, 134);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.label8.Size = new System.Drawing.Size(69, 38);
+            this.label8.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.label8.Size = new System.Drawing.Size(104, 48);
             this.label8.TabIndex = 33;
             this.label8.Text = "Source 7:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -563,10 +544,11 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(208, 43);
+            this.label7.Location = new System.Drawing.Point(311, 67);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.label7.Size = new System.Drawing.Size(69, 38);
+            this.label7.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.label7.Size = new System.Drawing.Size(104, 48);
             this.label7.TabIndex = 32;
             this.label7.Text = "Source 6:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -578,10 +560,11 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(208, 0);
+            this.label6.Location = new System.Drawing.Point(311, 0);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.label6.Size = new System.Drawing.Size(69, 38);
+            this.label6.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.label6.Size = new System.Drawing.Size(104, 48);
             this.label6.TabIndex = 31;
             this.label6.Text = "Source 5:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -593,10 +576,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(4, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.label1.Size = new System.Drawing.Size(69, 38);
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.label1.Size = new System.Drawing.Size(104, 48);
             this.label1.TabIndex = 0;
             this.label1.Text = "Source 1:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -613,16 +597,13 @@
             this.siticoneComboBox4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(213)))), ((int)(((byte)(217)))));
             this.siticoneComboBox4.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.siticoneComboBox4.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox4.FocusedState.Parent = this.siticoneComboBox4;
             this.siticoneComboBox4.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.siticoneComboBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.siticoneComboBox4.HoverState.Parent = this.siticoneComboBox4;
             this.siticoneComboBox4.ItemHeight = 30;
-            this.siticoneComboBox4.ItemsAppearance.Parent = this.siticoneComboBox4;
-            this.siticoneComboBox4.Location = new System.Drawing.Point(78, 132);
+            this.siticoneComboBox4.Location = new System.Drawing.Point(116, 206);
+            this.siticoneComboBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.siticoneComboBox4.Name = "siticoneComboBox4";
-            this.siticoneComboBox4.ShadowDecoration.Parent = this.siticoneComboBox4;
-            this.siticoneComboBox4.Size = new System.Drawing.Size(124, 36);
+            this.siticoneComboBox4.Size = new System.Drawing.Size(187, 36);
             this.siticoneComboBox4.TabIndex = 26;
             // 
             // label2
@@ -632,10 +613,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(3, 43);
+            this.label2.Location = new System.Drawing.Point(4, 67);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.label2.Size = new System.Drawing.Size(69, 38);
+            this.label2.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.label2.Size = new System.Drawing.Size(104, 48);
             this.label2.TabIndex = 1;
             this.label2.Text = "Source 2:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -652,16 +634,13 @@
             this.siticoneComboBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(213)))), ((int)(((byte)(217)))));
             this.siticoneComboBox3.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.siticoneComboBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox3.FocusedState.Parent = this.siticoneComboBox3;
             this.siticoneComboBox3.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.siticoneComboBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.siticoneComboBox3.HoverState.Parent = this.siticoneComboBox3;
             this.siticoneComboBox3.ItemHeight = 30;
-            this.siticoneComboBox3.ItemsAppearance.Parent = this.siticoneComboBox3;
-            this.siticoneComboBox3.Location = new System.Drawing.Point(78, 89);
+            this.siticoneComboBox3.Location = new System.Drawing.Point(116, 139);
+            this.siticoneComboBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.siticoneComboBox3.Name = "siticoneComboBox3";
-            this.siticoneComboBox3.ShadowDecoration.Parent = this.siticoneComboBox3;
-            this.siticoneComboBox3.Size = new System.Drawing.Size(124, 36);
+            this.siticoneComboBox3.Size = new System.Drawing.Size(187, 36);
             this.siticoneComboBox3.TabIndex = 25;
             // 
             // label3
@@ -671,10 +650,11 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(3, 86);
+            this.label3.Location = new System.Drawing.Point(4, 134);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.label3.Size = new System.Drawing.Size(69, 38);
+            this.label3.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.label3.Size = new System.Drawing.Size(104, 48);
             this.label3.TabIndex = 3;
             this.label3.Text = "Source 3:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -691,16 +671,13 @@
             this.siticoneComboBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(213)))), ((int)(((byte)(217)))));
             this.siticoneComboBox2.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.siticoneComboBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox2.FocusedState.Parent = this.siticoneComboBox2;
             this.siticoneComboBox2.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.siticoneComboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.siticoneComboBox2.HoverState.Parent = this.siticoneComboBox2;
             this.siticoneComboBox2.ItemHeight = 30;
-            this.siticoneComboBox2.ItemsAppearance.Parent = this.siticoneComboBox2;
-            this.siticoneComboBox2.Location = new System.Drawing.Point(78, 46);
+            this.siticoneComboBox2.Location = new System.Drawing.Point(116, 72);
+            this.siticoneComboBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.siticoneComboBox2.Name = "siticoneComboBox2";
-            this.siticoneComboBox2.ShadowDecoration.Parent = this.siticoneComboBox2;
-            this.siticoneComboBox2.Size = new System.Drawing.Size(124, 36);
+            this.siticoneComboBox2.Size = new System.Drawing.Size(187, 36);
             this.siticoneComboBox2.TabIndex = 24;
             // 
             // label4
@@ -710,10 +687,11 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(3, 129);
+            this.label4.Location = new System.Drawing.Point(4, 201);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.label4.Size = new System.Drawing.Size(69, 38);
+            this.label4.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.label4.Size = new System.Drawing.Size(104, 48);
             this.label4.TabIndex = 4;
             this.label4.Text = "Source 4:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -730,16 +708,13 @@
             this.siticoneComboBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(213)))), ((int)(((byte)(217)))));
             this.siticoneComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.siticoneComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox1.FocusedState.Parent = this.siticoneComboBox1;
             this.siticoneComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.siticoneComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.siticoneComboBox1.HoverState.Parent = this.siticoneComboBox1;
             this.siticoneComboBox1.ItemHeight = 30;
-            this.siticoneComboBox1.ItemsAppearance.Parent = this.siticoneComboBox1;
-            this.siticoneComboBox1.Location = new System.Drawing.Point(78, 3);
+            this.siticoneComboBox1.Location = new System.Drawing.Point(116, 5);
+            this.siticoneComboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.siticoneComboBox1.Name = "siticoneComboBox1";
-            this.siticoneComboBox1.ShadowDecoration.Parent = this.siticoneComboBox1;
-            this.siticoneComboBox1.Size = new System.Drawing.Size(124, 36);
+            this.siticoneComboBox1.Size = new System.Drawing.Size(187, 36);
             this.siticoneComboBox1.TabIndex = 23;
             // 
             // siticoneComboBox5
@@ -754,16 +729,13 @@
             this.siticoneComboBox5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(213)))), ((int)(((byte)(217)))));
             this.siticoneComboBox5.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.siticoneComboBox5.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox5.FocusedState.Parent = this.siticoneComboBox5;
             this.siticoneComboBox5.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.siticoneComboBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.siticoneComboBox5.HoverState.Parent = this.siticoneComboBox5;
             this.siticoneComboBox5.ItemHeight = 30;
-            this.siticoneComboBox5.ItemsAppearance.Parent = this.siticoneComboBox5;
-            this.siticoneComboBox5.Location = new System.Drawing.Point(283, 3);
+            this.siticoneComboBox5.Location = new System.Drawing.Point(423, 5);
+            this.siticoneComboBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.siticoneComboBox5.Name = "siticoneComboBox5";
-            this.siticoneComboBox5.ShadowDecoration.Parent = this.siticoneComboBox5;
-            this.siticoneComboBox5.Size = new System.Drawing.Size(124, 36);
+            this.siticoneComboBox5.Size = new System.Drawing.Size(188, 36);
             this.siticoneComboBox5.TabIndex = 27;
             // 
             // siticoneComboBox6
@@ -778,16 +750,13 @@
             this.siticoneComboBox6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(213)))), ((int)(((byte)(217)))));
             this.siticoneComboBox6.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.siticoneComboBox6.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox6.FocusedState.Parent = this.siticoneComboBox6;
             this.siticoneComboBox6.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.siticoneComboBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.siticoneComboBox6.HoverState.Parent = this.siticoneComboBox6;
             this.siticoneComboBox6.ItemHeight = 30;
-            this.siticoneComboBox6.ItemsAppearance.Parent = this.siticoneComboBox6;
-            this.siticoneComboBox6.Location = new System.Drawing.Point(283, 46);
+            this.siticoneComboBox6.Location = new System.Drawing.Point(423, 72);
+            this.siticoneComboBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.siticoneComboBox6.Name = "siticoneComboBox6";
-            this.siticoneComboBox6.ShadowDecoration.Parent = this.siticoneComboBox6;
-            this.siticoneComboBox6.Size = new System.Drawing.Size(124, 36);
+            this.siticoneComboBox6.Size = new System.Drawing.Size(188, 36);
             this.siticoneComboBox6.TabIndex = 28;
             // 
             // siticoneComboBox7
@@ -802,16 +771,13 @@
             this.siticoneComboBox7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(213)))), ((int)(((byte)(217)))));
             this.siticoneComboBox7.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.siticoneComboBox7.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox7.FocusedState.Parent = this.siticoneComboBox7;
             this.siticoneComboBox7.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.siticoneComboBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.siticoneComboBox7.HoverState.Parent = this.siticoneComboBox7;
             this.siticoneComboBox7.ItemHeight = 30;
-            this.siticoneComboBox7.ItemsAppearance.Parent = this.siticoneComboBox7;
-            this.siticoneComboBox7.Location = new System.Drawing.Point(283, 89);
+            this.siticoneComboBox7.Location = new System.Drawing.Point(423, 139);
+            this.siticoneComboBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.siticoneComboBox7.Name = "siticoneComboBox7";
-            this.siticoneComboBox7.ShadowDecoration.Parent = this.siticoneComboBox7;
-            this.siticoneComboBox7.Size = new System.Drawing.Size(124, 36);
+            this.siticoneComboBox7.Size = new System.Drawing.Size(188, 36);
             this.siticoneComboBox7.TabIndex = 29;
             // 
             // siticoneComboBox8
@@ -826,16 +792,13 @@
             this.siticoneComboBox8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(213)))), ((int)(((byte)(217)))));
             this.siticoneComboBox8.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.siticoneComboBox8.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox8.FocusedState.Parent = this.siticoneComboBox8;
             this.siticoneComboBox8.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.siticoneComboBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.siticoneComboBox8.HoverState.Parent = this.siticoneComboBox8;
             this.siticoneComboBox8.ItemHeight = 30;
-            this.siticoneComboBox8.ItemsAppearance.Parent = this.siticoneComboBox8;
-            this.siticoneComboBox8.Location = new System.Drawing.Point(283, 132);
+            this.siticoneComboBox8.Location = new System.Drawing.Point(423, 206);
+            this.siticoneComboBox8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.siticoneComboBox8.Name = "siticoneComboBox8";
-            this.siticoneComboBox8.ShadowDecoration.Parent = this.siticoneComboBox8;
-            this.siticoneComboBox8.Size = new System.Drawing.Size(124, 36);
+            this.siticoneComboBox8.Size = new System.Drawing.Size(188, 36);
             this.siticoneComboBox8.TabIndex = 30;
             // 
             // ProgramDeviceLayout
@@ -850,12 +813,12 @@
             this.ProgramDeviceLayout.Controls.Add(this.SerialConnectionLabel, 0, 0);
             this.ProgramDeviceLayout.Controls.Add(this.DeviceInfoButton, 1, 0);
             this.ProgramDeviceLayout.Controls.Add(this.DeviceProgramButton, 2, 0);
-            this.ProgramDeviceLayout.Location = new System.Drawing.Point(0, 396);
+            this.ProgramDeviceLayout.Location = new System.Drawing.Point(0, 610);
             this.ProgramDeviceLayout.Margin = new System.Windows.Forms.Padding(0);
             this.ProgramDeviceLayout.Name = "ProgramDeviceLayout";
             this.ProgramDeviceLayout.RowCount = 1;
             this.ProgramDeviceLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.ProgramDeviceLayout.Size = new System.Drawing.Size(410, 51);
+            this.ProgramDeviceLayout.Size = new System.Drawing.Size(615, 79);
             this.ProgramDeviceLayout.TabIndex = 22;
             // 
             // SerialConnectionLabel
@@ -864,10 +827,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SerialConnectionLabel.AutoSize = true;
-            this.SerialConnectionLabel.Location = new System.Drawing.Point(5, 5);
-            this.SerialConnectionLabel.Margin = new System.Windows.Forms.Padding(5);
+            this.SerialConnectionLabel.Location = new System.Drawing.Point(8, 8);
+            this.SerialConnectionLabel.Margin = new System.Windows.Forms.Padding(8);
             this.SerialConnectionLabel.Name = "SerialConnectionLabel";
-            this.SerialConnectionLabel.Size = new System.Drawing.Size(131, 41);
+            this.SerialConnectionLabel.Size = new System.Drawing.Size(195, 63);
             this.SerialConnectionLabel.TabIndex = 0;
             this.SerialConnectionLabel.Text = "Tally Device Connectivity";
             this.SerialConnectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -879,23 +842,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DeviceInfoButton.BackColor = System.Drawing.Color.Transparent;
             this.DeviceInfoButton.BorderRadius = 10;
-            this.DeviceInfoButton.CheckedState.Parent = this.DeviceInfoButton;
-            this.DeviceInfoButton.CustomImages.Parent = this.DeviceInfoButton;
             this.DeviceInfoButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.DeviceInfoButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.DeviceInfoButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.DeviceInfoButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.DeviceInfoButton.DisabledState.Parent = this.DeviceInfoButton;
             this.DeviceInfoButton.FillColor = System.Drawing.Color.Gray;
             this.DeviceInfoButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeviceInfoButton.ForeColor = System.Drawing.Color.White;
-            this.DeviceInfoButton.HoverState.Parent = this.DeviceInfoButton;
-            this.DeviceInfoButton.Location = new System.Drawing.Point(146, 5);
-            this.DeviceInfoButton.Margin = new System.Windows.Forms.Padding(5);
-            this.DeviceInfoButton.MaximumSize = new System.Drawing.Size(0, 42);
+            this.DeviceInfoButton.Location = new System.Drawing.Point(219, 8);
+            this.DeviceInfoButton.Margin = new System.Windows.Forms.Padding(8);
+            this.DeviceInfoButton.MaximumSize = new System.Drawing.Size(0, 65);
             this.DeviceInfoButton.Name = "DeviceInfoButton";
-            this.DeviceInfoButton.ShadowDecoration.Parent = this.DeviceInfoButton;
-            this.DeviceInfoButton.Size = new System.Drawing.Size(122, 41);
+            this.DeviceInfoButton.Size = new System.Drawing.Size(182, 63);
             this.DeviceInfoButton.TabIndex = 1;
             this.DeviceInfoButton.Text = "Device Info";
             this.DeviceInfoButton.Click += new System.EventHandler(this.DeviceInfoButton_Click);
@@ -907,23 +865,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DeviceProgramButton.BackColor = System.Drawing.Color.Transparent;
             this.DeviceProgramButton.BorderRadius = 10;
-            this.DeviceProgramButton.CheckedState.Parent = this.DeviceProgramButton;
-            this.DeviceProgramButton.CustomImages.Parent = this.DeviceProgramButton;
             this.DeviceProgramButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.DeviceProgramButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.DeviceProgramButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.DeviceProgramButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.DeviceProgramButton.DisabledState.Parent = this.DeviceProgramButton;
             this.DeviceProgramButton.FillColor = System.Drawing.Color.Gray;
             this.DeviceProgramButton.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.DeviceProgramButton.ForeColor = System.Drawing.Color.White;
-            this.DeviceProgramButton.HoverState.Parent = this.DeviceProgramButton;
-            this.DeviceProgramButton.Location = new System.Drawing.Point(278, 5);
-            this.DeviceProgramButton.Margin = new System.Windows.Forms.Padding(5);
-            this.DeviceProgramButton.MaximumSize = new System.Drawing.Size(0, 42);
+            this.DeviceProgramButton.Location = new System.Drawing.Point(417, 8);
+            this.DeviceProgramButton.Margin = new System.Windows.Forms.Padding(8);
+            this.DeviceProgramButton.MaximumSize = new System.Drawing.Size(0, 65);
             this.DeviceProgramButton.Name = "DeviceProgramButton";
-            this.DeviceProgramButton.ShadowDecoration.Parent = this.DeviceProgramButton;
-            this.DeviceProgramButton.Size = new System.Drawing.Size(127, 41);
+            this.DeviceProgramButton.Size = new System.Drawing.Size(190, 63);
             this.DeviceProgramButton.TabIndex = 2;
             this.DeviceProgramButton.Text = "Program Device";
             this.DeviceProgramButton.Click += new System.EventHandler(this.DeviceProgramButton_Click);
@@ -935,9 +888,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MessageText.Cursor = System.Windows.Forms.Cursors.Default;
             this.MessageText.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MessageText.Location = new System.Drawing.Point(3, 447);
+            this.MessageText.Location = new System.Drawing.Point(4, 689);
+            this.MessageText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.MessageText.Name = "MessageText";
-            this.MessageText.Size = new System.Drawing.Size(404, 23);
+            this.MessageText.Size = new System.Drawing.Size(607, 34);
             this.MessageText.TabIndex = 21;
             this.MessageText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -951,12 +905,12 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Controls.Add(this.TestConnectButton, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.SaveButton, 1, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 346);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 533);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(410, 50);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(615, 77);
             this.tableLayoutPanel5.TabIndex = 15;
             // 
             // TestConnectButton
@@ -965,25 +919,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TestConnectButton.BackColor = System.Drawing.Color.Transparent;
-            this.TestConnectButton.BorderRadius = 20;
-            this.TestConnectButton.CheckedState.Parent = this.TestConnectButton;
-            this.TestConnectButton.CustomImages.Parent = this.TestConnectButton;
-            this.TestConnectButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.TestConnectButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.TestConnectButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.TestConnectButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.TestConnectButton.DisabledState.Parent = this.TestConnectButton;
-            this.TestConnectButton.FillColor = System.Drawing.Color.Gray;
             this.TestConnectButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TestConnectButton.ForeColor = System.Drawing.Color.White;
-            this.TestConnectButton.HoverState.Parent = this.TestConnectButton;
-            this.TestConnectButton.Location = new System.Drawing.Point(3, 3);
-            this.TestConnectButton.MaximumSize = new System.Drawing.Size(0, 42);
+            this.TestConnectButton.Location = new System.Drawing.Point(4, 5);
+            this.TestConnectButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TestConnectButton.MaximumSize = new System.Drawing.Size(0, 65);
             this.TestConnectButton.Name = "TestConnectButton";
-            this.TestConnectButton.ShadowDecoration.Parent = this.TestConnectButton;
-            this.TestConnectButton.Size = new System.Drawing.Size(199, 42);
+            this.TestConnectButton.Size = new System.Drawing.Size(299, 65);
             this.TestConnectButton.TabIndex = 20;
             this.TestConnectButton.Text = "Test Connection";
+            this.TestConnectButton.UseVisualStyleBackColor = false;
             this.TestConnectButton.Click += new System.EventHandler(this.wsConnect_Click);
             // 
             // SaveButton
@@ -992,27 +937,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SaveButton.BackColor = System.Drawing.Color.Transparent;
-            this.SaveButton.BorderRadius = 20;
-            this.SaveButton.CheckedState.Parent = this.SaveButton;
-            this.SaveButton.CustomImages.Parent = this.SaveButton;
-            this.SaveButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.SaveButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.SaveButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.SaveButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.SaveButton.DisabledState.Parent = this.SaveButton;
-            this.SaveButton.FillColor = System.Drawing.Color.Gray;
             this.SaveButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.SaveButton.ForeColor = System.Drawing.Color.White;
-            this.SaveButton.HoverState.Parent = this.SaveButton;
-            this.SaveButton.IndicateFocus = true;
-            this.SaveButton.Location = new System.Drawing.Point(208, 3);
-            this.SaveButton.MaximumSize = new System.Drawing.Size(0, 42);
+            this.SaveButton.Location = new System.Drawing.Point(311, 5);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.SaveButton.MaximumSize = new System.Drawing.Size(0, 65);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.ShadowDecoration.Parent = this.SaveButton;
-            this.SaveButton.Size = new System.Drawing.Size(199, 42);
+            this.SaveButton.Size = new System.Drawing.Size(300, 65);
             this.SaveButton.TabIndex = 24;
             this.SaveButton.Text = "Save";
-            this.SaveButton.UseTransparentBackground = true;
+            this.SaveButton.UseVisualStyleBackColor = false;
             this.SaveButton.Click += new System.EventHandler(this.Save_Click);
             // 
             // IPAddressToolTip
@@ -1032,13 +966,14 @@
             // 
             // SetupPopup
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(420, 480);
+            this.ClientSize = new System.Drawing.Size(630, 738);
             this.Controls.Add(this.LayoutPanelAll);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(420, 480);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MinimumSize = new System.Drawing.Size(630, 738);
             this.Name = "SetupPopup";
             this.Text = "Setup";
             this.Load += new System.EventHandler(this.SetupPopup_Load);
@@ -1087,7 +1022,7 @@
         private Siticone.Desktop.UI.WinForms.SiticoneComboBox siticoneComboBox6;
         private Siticone.Desktop.UI.WinForms.SiticoneComboBox siticoneComboBox7;
         private Siticone.Desktop.UI.WinForms.SiticoneComboBox siticoneComboBox8;
-        private Siticone.Desktop.UI.WinForms.SiticoneRoundedButton SaveButton;
+        private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.TableLayoutPanel ProgramDeviceLayout;
         private System.Windows.Forms.Label SerialConnectionLabel;
         private System.Windows.Forms.Label MessageText;
@@ -1096,9 +1031,9 @@
         private Siticone.Desktop.UI.WinForms.SiticoneComboBox PortComboBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox IPAddressTextBox;
-        private Siticone.Desktop.UI.WinForms.SiticoneRoundedComboBox IPAddressComboBox;
+        private System.Windows.Forms.ComboBox IPAddressComboBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private Siticone.Desktop.UI.WinForms.SiticoneRoundedButton TestConnectButton;
+        private System.Windows.Forms.Button TestConnectButton;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox PasswordTextBox;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlToolTip IPAddressToolTip;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlToolTip PortToolTip;

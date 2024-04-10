@@ -1,4 +1,4 @@
-﻿using Siticone.Desktop.UI.WinForms;
+﻿//using Siticone.Desktop.UI.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -41,13 +41,13 @@ namespace OpenTally
             //OBS.socket.Disconnected += onDisconnect;
             //OBS.socket.SceneChanged += onSceneChange;
 
-            new SiticoneShadowForm(this);
-            new SiticoneDragControl(this);
+            //new SiticoneShadowForm(this);
+            //new SiticoneDragControl(this);
             DoubleBuffered = true;
             SetStyle(ControlStyles.ResizeRedraw, true);
 
-            new SiticoneDragControl(WiredWirelessLabel);//Make dragable
-            new SiticoneDragControl(MessageText);//Make dragable
+            //new SiticoneDragControl(WiredWirelessLabel);//Make dragable
+            //new SiticoneDragControl(MessageText);//Make dragable
 
         }
 
@@ -104,8 +104,8 @@ namespace OpenTally
 
             TestConnectButton.Enabled = true;
 
-            UIElements.GetControlsOfType<SiticoneComboBox>(LayoutPanelSourceUI).ToList().ForEach(element => element.Items.Add(""));//Add blank to all source selections
-            UIElements.GetControlsOfType<SiticoneComboBox>(LayoutPanelSourceUI).ToList().ForEach(element => element.SelectedIndex = 0);//Required to avoid null values
+            UIElements.GetControlsOfType<ComboBox>(LayoutPanelSourceUI).ToList().ForEach(element => element.Items.Add(""));//Add blank to all source selections
+            UIElements.GetControlsOfType<ComboBox>(LayoutPanelSourceUI).ToList().ForEach(element => element.SelectedIndex = 0);//Required to avoid null values
 
             //Config Loading
             try
@@ -503,7 +503,7 @@ namespace OpenTally
             MessageText.Text = "";
 
             //Reset TestConnectButton color and text
-            TestConnectButton.WSUpdateControl(() => { TestConnectButton.Text = "Test Connection"; TestConnectButton.FillColor = Color.Gray; });
+            TestConnectButton.WSUpdateControl(() => { TestConnectButton.Text = "Test Connection"; TestConnectButton.BackColor = Color.Gray; });
 
             //Resize form on toggle
             Size = MinimumSize = new Size(Width, Height - (int)LayoutPanelAllRowHeightsPixels[2] - (int)LayoutPanelUserConfigRowHeightsPixels[2] + (int)LayoutPanelAllRowHeightsPixels[4] + (int)LayoutPanelAllRowHeightsPixels[5]);//Resize form to be shorter to accomodate missing controls
@@ -531,7 +531,7 @@ namespace OpenTally
             MessageText.Text = "";
 
             //Reset TestConnectButton color and text
-            TestConnectButton.WSUpdateControl(() => { TestConnectButton.Text = "Get Devices"; TestConnectButton.FillColor = Color.Gray; });
+            TestConnectButton.WSUpdateControl(() => { TestConnectButton.Text = "Get Devices"; TestConnectButton.BackColor = Color.Gray; });
 
             //Resize form on toggle
             Size = MinimumSize = new Size(Width, Height + (int)LayoutPanelAllRowHeightsPixels[2] + (int)LayoutPanelUserConfigRowHeightsPixels[2] - ((int)LayoutPanelAllRowHeightsPixels[4] + (int)LayoutPanelAllRowHeightsPixels[5]));//Resize form to be shorter
@@ -558,11 +558,11 @@ namespace OpenTally
         public static void GetDevicesFromOBS(List<OBSWebsocketDotNet.Types.SourceInfo> sourceList, TableLayoutPanel LayoutPanelSourceUI)
         {
 
-            UIElements.GetControlsOfType<SiticoneComboBox>(LayoutPanelSourceUI).ToList().ForEach(element => element.WSUpdateControl(() => { element.Items.Clear(); }));//Threadsafe clear combobox
-            UIElements.GetControlsOfType<SiticoneComboBox>(LayoutPanelSourceUI).ToList().ForEach(element => element.WSUpdateControl(() => { element.Items.Add(""); }));//Threadsafe add blank selection
+            UIElements.GetControlsOfType<ComboBox>(LayoutPanelSourceUI).ToList().ForEach(element => element.WSUpdateControl(() => { element.Items.Clear(); }));//Threadsafe clear combobox
+            UIElements.GetControlsOfType<ComboBox>(LayoutPanelSourceUI).ToList().ForEach(element => element.WSUpdateControl(() => { element.Items.Add(""); }));//Threadsafe add blank selection
 
             int i = 1;//Start at 1 so we don't select null value
-            foreach (var element in UIElements.GetControlsOfType<SiticoneComboBox>(LayoutPanelSourceUI))// For each comboBox
+            foreach (var element in UIElements.GetControlsOfType<ComboBox>(LayoutPanelSourceUI))// For each comboBox
             {
                 foreach (var source in sourceList)// For each device
                 {
@@ -585,12 +585,12 @@ namespace OpenTally
         // Call it like: SetupPopup.GetDevices(sourceList, ConnectButton, LayoutPanelSourceUI)
         public static void GetDevicesFromConfig(Config configObj, TableLayoutPanel LayoutPanelSourceUI)
         {
-            UIElements.GetControlsOfType<SiticoneComboBox>(LayoutPanelSourceUI).ToList().ForEach(element => element.WSUpdateControl(() => { element.Items.Clear(); }));//Threadsafe clear combobox
-            UIElements.GetControlsOfType<SiticoneComboBox>(LayoutPanelSourceUI).ToList().ForEach(element => element.WSUpdateControl(() => { element.Items.Add(""); }));//Threadsafe add blank selection
-            UIElements.GetControlsOfType<SiticoneComboBox>(LayoutPanelSourceUI).ToList().ForEach(element => element.WSUpdateControl(() => { element.SelectedIndex = 0; }));//Threadsafe add blank selection
+            UIElements.GetControlsOfType<ComboBox>(LayoutPanelSourceUI).ToList().ForEach(element => element.WSUpdateControl(() => { element.Items.Clear(); }));//Threadsafe clear combobox
+            UIElements.GetControlsOfType<ComboBox>(LayoutPanelSourceUI).ToList().ForEach(element => element.WSUpdateControl(() => { element.Items.Add(""); }));//Threadsafe add blank selection
+            UIElements.GetControlsOfType<ComboBox>(LayoutPanelSourceUI).ToList().ForEach(element => element.WSUpdateControl(() => { element.SelectedIndex = 0; }));//Threadsafe add blank selection
 
             int i = 0;
-            foreach (var element in UIElements.GetControlsOfType<SiticoneComboBox>(LayoutPanelSourceUI))// For each comboBox
+            foreach (var element in UIElements.GetControlsOfType<ComboBox>(LayoutPanelSourceUI))// For each comboBox
             {
                 for (var j = 0; j < configObj.GetType().GetProperties().Count(); j++)// For each property in configObj
                 {

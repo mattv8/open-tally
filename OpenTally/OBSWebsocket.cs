@@ -1,5 +1,5 @@
 ﻿using OBSWebsocketDotNet;
-using Siticone.Desktop.UI.WinForms;
+//using Siticone.Desktop.UI.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -23,7 +23,7 @@ namespace OpenTally
 
         // Simple SocketIO Connection Test Function
         //  Requires: string containing Websocket endpoint, string containing device ID, and a button to indicate connectivity
-        public static void TestConnection(string wsAddress, string wsPassword, SiticoneRoundedButton button, Label label, TableLayoutPanel LayoutPanelSourceUI)
+        public static void TestConnection(string wsAddress, string wsPassword, Button button, Label label, TableLayoutPanel LayoutPanelSourceUI)
         {
             label.WSUpdateControl(() => { label.Text = "Testing connection to " + wsAddress; });
 
@@ -66,7 +66,7 @@ namespace OpenTally
         // Simple SocketIO Connection Test Function
         //  Requires: string containing Websocket endpoint, string containing device ID, and a button to indicate connectivity
         //  This function should only be called from MainProgram
-        public static void Connect(string wsAddress, string wsPassword, SiticoneRoundedButton ConnectButton, Config configObj, Label Source1, Label Source2, Label Source3, Label Source4, Label Source5, Label Source6, Label Source7, Label Source8, Label InfoText, Form MainProgram, TableLayoutPanel tableLayout2)
+        public static void Connect(string wsAddress, string wsPassword, Button ConnectButton, Config configObj, Label Source1, Label Source2, Label Source3, Label Source4, Label Source5, Label Source6, Label Source7, Label Source8, Label InfoText, Form MainProgram, TableLayoutPanel tableLayout2)
         {
 
             UIElements.WSUpdateButton("Connecting...", ConnectButton, Color.Yellow, Color.Black, "disabled");

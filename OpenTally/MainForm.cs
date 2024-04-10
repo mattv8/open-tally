@@ -1,4 +1,4 @@
-﻿using Siticone.Desktop.UI.WinForms;
+﻿//using Siticone.Desktop.UI.WinForms;
 using System;
 using System.Drawing;
 using System.IO;
@@ -37,8 +37,8 @@ namespace OpenTally
 
             Serial.port = new SerialPort("COM10", 115200, Parity.None, 8, StopBits.One);
 
-            new SiticoneShadowForm(this);
-            new SiticoneDragControl(this);
+            //new SiticoneShadowForm(this);
+            //new SiticoneDragControl(this);
             DoubleBuffered = true;
             SetStyle(ControlStyles.ResizeRedraw, true);
 
@@ -73,7 +73,7 @@ namespace OpenTally
             }
 
             ServerConnectionHandler();//Server Connections
-            UIElements.GetControlsOfType<Label>(this).ToList().ForEach(element => new SiticoneDragControl(element));//Make all labels dragabble
+            //UIElements.GetControlsOfType<Label>(this).ToList().ForEach(element => new SiticoneDragControl(element));//Make all labels dragabble
             InfoText.Text = "OpenTally v" + Functions.CurrentVersion;//Show version info
 
         }
@@ -269,7 +269,7 @@ namespace OpenTally
             else if (configObj.mode == SetupPopup.OBSDirectConnect)
             {
                 OBS.Connect("ws://" + configObj.wsAddress + ":" + configObj.wsPort, configObj.wsPassword, ServerConnectButton, configObj, Source1, Source2, Source3, Source4, Source5, Source6, Source7, Source8, MessageText, this, tableLayout2);
-                if (TallyArbiter.socket != null) { TallyArbiter.socket.Emit("disconnect"); TallyArbiter.socket.Off(); Console.WriteLine("Ended socketIO connection"); }//Disable socketIO connection, if one exists
+                //if (TallyArbiter.socket != null) { TallyArbiter.socket.Emit("disconnect"); TallyArbiter.socket.Off(); Console.WriteLine("Ended socketIO connection"); }//Disable socketIO connection, if one exists
                 pollOBS.Enabled = true;//Enable pollOBS timer
                 pollTA.Enabled = false;//Disable pollTA timer
                 OBS.lastLiveScene = OBS.lastPreviewScene = "";//reset last scenes to force a refresh.
