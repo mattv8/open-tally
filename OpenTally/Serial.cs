@@ -18,7 +18,21 @@ namespace OpenTally
         // Parent ID for the Silicon Labs CP210x USB to UART Bridge (TinyPico) and the Arduino Micro respectively
         //  See also: https://docs.microsoft.com/en-us/windows-hardware/drivers/install/standard-usb-identifiers
         //  This is preferable to deviceCaption in case the computer doesn't have USB drivers installed.
-        public static string[] devicePIDs = { "VID_10C4&PID_EA60", "VID_2341&PID_8037&MI_00" };
+        public static string[] devicePIDs = {
+            "VID_2341&PID_0043",// Arduino Uno
+            "VID_2341&PID_0042",// Arduino Mega 2560
+            "VID_1A86&PID_7523",// Arduino Nano
+            "VID_1B4F&PID_9205",// Arduino Pro Micro
+            "VID_10C4&PID_EA60",// My Arduino Pro Micro
+            "VID_2341&PID_8036",// Arduino Leonardo
+            "VID_2341&PID_8037",// Arduino Micro
+            "VID_2341&PID_0044",// Arduino Mini
+            "VID_2341&PID_8037&MI_00"// Silocon Labs CP210x
+
+            // Additional Arduino device PIDs
+
+        };
+
 
         #region -  Serial Events  -
 
